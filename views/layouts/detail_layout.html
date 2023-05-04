@@ -1,0 +1,28 @@
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:replace="~{fragments/config :: configFragment}"></head>
+
+<!-- 카테고리와 함께 사용할 레이아웃-->
+<body>
+  <!-- container-fluid는 부트스트랩 요소. 전체를 감싸서 반응형으로 만드는 margin 0 auto 역할-->
+  <div class="container-fluid">
+    <!-- header -->
+    <th:block th:replace="~{fragments/header :: headerFragment}"></th:block>
+
+        <!--content-->
+        <div layout:fragment="content">공통 레이아웃</div>
+
+
+    <!-- footer -->
+    <th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+  </div>
+
+
+
+</body>
+<th:block th:replace="~{fragments/script :: scriptFragment}"></th:block>
+
+<th:block layout:fragment="scriptFragment">
+
+</th:block>
+</html>

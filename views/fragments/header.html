@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+
+<!--headerFragment 선언-->
+<div th:fragment="headerFragment">
+
+  <div class="fragment-header">
+    <hr style="color:steelblue">
+    <div class="navbar-top">
+
+
+    <div class="login-authentication">
+      <input type="hidden" class="login-sessionCheck" th:value="${session.memberSeq}">
+    <span class="login-sessionCheck-exist">
+      <div class="navbar-login-font" style="color:white;">
+   <a href="/page/myPage" style="color:white;"> 마이페이지</a>
+      <a href="/page/cartList" style="color:white;">장바구니</a>
+      <a href="/logout" style="color:white;">로그아웃</a>
+</div>
+    </span>
+
+      <span class="login-sessionCheck-notExist">
+        <div class="navbar-login-font" >
+        <form action="/page/login" method="post" class="header-login-form">
+          ID: <input type="text" name="id">
+         PW:  <input type="password" name="pw">
+            <input type="checkbox" class="save-session-localStorage"value="remember me" style="color:white;">
+
+          <input type="submit" name="login" value="로그인">
+               <a href="/page/insertMember" style="color:white;">회원가입</a>
+         </form>
+        </div>
+
+
+
+    </span>
+    </div>
+
+    </div>
+    <hr style="color:steelblue">
+
+
+    <!--    로그인 기능 주석처리-->
+    <!--    <div class="fragment-header-login">-->
+    <!--      <input type="hidden" class="login-sessionCheck" th:value="${session.memberNum}">-->
+    <!--      <div class="login-sessionCheck-exist">-->
+    <!--        <span th:value="|${loginId}+님|"></span> <a href="">내 정보</a> <a href="#">내 팀</a> <a href="#">내 게시글</a> <a-->
+    <!--          href="#">내 댓글</a> <a href="#">쪽지함</a> <a href="#">로그아웃</a>-->
+
+    <!--      </div>-->
+
+    <!--      <div class="login-sessionCheck-notExist">-->
+    <!--        <form action="/member/login" method="post">-->
+    <!--          <input type="text" name="loginId"> <input type="text" name="password"> <input type="submit"-->
+    <!--            value="로그인" />-->
+    <!--        </form>-->
+    <!--        <a href=#>회원가입</a>-->
+    <!--      </div>-->
+
+    <!--    </div>-->
+
+  </div>
+
+  <div class="navbar-main">
+
+    <div class="fragment-header-logo" onclick="location.href='/';" style="cursor:pointer;"
+    ></div>
+
+<span class="navbar-main-search">
+  검색창 들어갈 곳
+<form action="/page/search" method="get" id="search-form">
+ <select name="category" class="search-category" form="search-form">
+   <option value="카테고리1">카테고리1</option>
+   <option value="카테고리2">카테고리2</option>
+   <option value="카테고리3">카테고리3</option>
+ </select>
+  <input type="text" name="keyword">
+  <input type="submit" class="button-submit" value="검색">
+</form>
+</span>
+
+    <span class="navbar-main-right ad-sm" style="cursor:pointer;">
+<a href="/#"></a>
+    </span>
+
+
+  </div>
+
+  <div class="navbar-bottom-category">
+    <div class="navbar-menu">
+      <a href="/">메인페이지임시</a>
+      <a href="/page/detail/1">상세보기임시(bookid=1)</a>
+      <a href="/page/category">카테고리임시</a>
+      <a href="/page/login">로그인임시</a>
+      <a href="/page/myPage">마이페이지임시</a>
+      <a href="/page/insertBook">책추가임시</a>
+      <a href="/page/insertMember">회원가입임시</a>
+      <a href="/page/prototype">프로토타입임시</a>
+      <a href="/page/cartList">카트리스트임시</a>
+      <a href="/page/directBuy">바로구매임시</a>
+
+
+
+
+
+    </div>
+
+  </div>
+<hr style="color:steelblue">
+</div>
+
+
+</html>
+
+
+
+
+

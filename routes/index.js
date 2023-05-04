@@ -31,16 +31,11 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-<<<<<<< HEAD
 router.get('/test', function(req, res, next) {
 	res.send('Hello World!');
   });
 
 
-router.get('/hanpy/:id', (req,res) => {
-	res.json({id: req.params.id});
-
-=======
 router.get("/hanpy/:id", (req, res) => {
   res.json({ id: req.params.id });
 });
@@ -58,8 +53,7 @@ router.get("/mybatisTest1/:boardNum", (req, res, next) => {
   mysql.query(query, (error, rows) => {
     console.log(rows);
     res.json(rows);
->>>>>>> d9ad9b11bfdcacc4c3b3477fb56d4cf7647f0932
   });
-});
+  });
 
 module.exports = router;

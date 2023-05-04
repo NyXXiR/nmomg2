@@ -1,5 +1,18 @@
-extends layout
+extends ./includes/layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	.container
+		h1= title
+		p Welcome to #{title}
+
+		.row
+			.col-3
+				p 테스트1
+			.col-3
+				p 테스트2
+			.col-3
+				p 테스트3
+			.col-3
+				p 테스트4
+		
+		

@@ -1,9 +1,7 @@
 var express = require("express");
 var router = express.Router();
-var mainController = require('../controllers/mainController')
+var mainController = require("../controllers/mainController");
 const cors = require("cors");
-
-
 
 //미들웨어 목록
 router.use(cors());
@@ -15,10 +13,9 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-router.get('/test/:seq', function(req, res, next) {
-	mainController.getAllUser(req);
-  });
-
+router.get("/pages/test/:seq", function (req, res, next) {
+  res.json(mainController.getAllUser(req));
+});
 
 router.get("/hanpy/:id", (req, res) => {
   res.json({ id: req.params.id });
@@ -38,6 +35,6 @@ router.get("/mybatisTest1/:boardNum", (req, res, next) => {
     console.log(rows);
     res.json(rows);
   });
-  });
+});
 
 module.exports = router;

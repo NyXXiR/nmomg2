@@ -7,6 +7,6 @@
     FROM
       board
     WHERE
-      boardNum =#{boardNum}
+      seq =#{seq}
   </select>
 </mapper>

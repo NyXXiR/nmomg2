@@ -1,25 +1,9 @@
 var express = require("express");
 var router = express.Router();
+var mainController = require('../controllers/mainController')
 const cors = require("cors");
-/* mybatis $ npm i mybatis-mapper */
-const mybatisMapper = require("mybatis-mapper");
-mybatisMapper.createMapper(["./mybatis/testMapper.xml"]);
 
-/* 조회할 내용 */
-var param = {
-  boardNum: "1",
-};
 
-/* mybatis query */
-var format = { language: "sql", indent: " " };
-var query = mybatisMapper.getStatement(
-  "sqlMapper",
-  "getAllQuery",
-  param,
-  format
-);
-
-const mysql = require("../mysql/db"); // mysql 모듈 로드
 
 //미들웨어 목록
 router.use(cors());
@@ -31,8 +15,8 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-router.get('/test', function(req, res, next) {
-	res.send('Hello World!');
+router.get('/test/:seq', function(req, res, next) {
+	mainController.getAllUser(req);
   });
 
 

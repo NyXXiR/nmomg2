@@ -7,8 +7,9 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
 /* connect mysql */
-var mysqlDB = require("./mysql/db");
+var mysqlDB = require("./config/mysql/db.js");
 mysqlDB.connect();
+
 var app = express();
 
 // view engine setup

@@ -1,3 +1,6 @@
+var express = require("express");
+var router = express.Router();
+
 /* mybatis $ npm i mybatis-mapper */
 const mybatisMapper = require('mybatis-mapper');
 mybatisMapper.createMapper(['./mybatis/testMapper.xml'])

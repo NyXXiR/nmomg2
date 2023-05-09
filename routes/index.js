@@ -16,7 +16,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.get('/test/:seq', function(req, res, next) {
-	mainController.getAllUser(req);
+	mainController.getAllUser(req,res,next);
   });
 
 

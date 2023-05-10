@@ -17,6 +17,14 @@ router.get("/sidebar", function (req, res, next) {
   res.render("index_with_sidebar", { title: "너만오면고" });
 });
 
+router.get("/index_league_of_legend", function (req, res, next) {
+  res.render("index_league_of_legend", { title: "너만오면고" });
+});
+
+router.get("/index_valorant", function (req, res, next) {
+  res.render("index_valorant", { title: "너만오면고" });
+});
+
 router.get("/test/:seq", function (req, res, next) {
   mainController.getAllUser(req, res, next);
 });

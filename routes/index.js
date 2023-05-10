@@ -10,13 +10,16 @@ router.use(cors());
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("index", { title: "너만오면고" });
 });
 
-router.get('/test/:seq', function(req, res, next) {
-	mainController.getAllUser(req,res,next);
-  });
+router.get("/sidebar", function (req, res, next) {
+  res.render("index_with_sidebar", { title: "너만오면고" });
+});
 
+router.get("/test/:seq", function (req, res, next) {
+  mainController.getAllUser(req, res, next);
+});
 
 router.get("/hanpy/:id", (req, res) => {
   res.json({ id: req.params.id });

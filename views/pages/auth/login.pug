@@ -1,0 +1,11 @@
+extends ../../layouts/defaultLayout
+
+block content
+    p 로그인 폼
+
+
+    form.login-form(action="/auth/loginCheck" method="post")
+        input.login-id(type="text" placeholder="아이디입력")
+        input.login-id-check(type="submit" form)
+        input.login-pw(type="text" placeholder="비밀번호입력")
+        input.login-submit(type="submit")

@@ -1,16 +1,20 @@
 doctype html
 html
 	include ../includes/head
-    
-	
+
+
 body
 	include ../includes/header
 
-	block content
+	.container-fluid
+		.row
+			.col-9
+				block content
+			.col-3
+				include ../includes/sidebar
 
 	include ../includes/foot
-		
-	include ../includes/scripts
-	
 
-	
+	include ../includes/scripts
+
+

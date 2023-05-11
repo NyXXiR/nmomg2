@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var mainController = require("../controllers/mainController");
+var mainService = require("../services/mainService");
 const cors = require("cors");
 
 //미들웨어 목록
@@ -16,6 +16,14 @@ router.post("/login", function (req, res, next) {
 });
 router.get("/join", function (req, res, next) {
   res.render("pages/auth/join");
+});
+router.post("/join", function (req, res, next) {
+  mainService.insertMember(req, res, next);
+});
+
+router.post("/id_check", function (req, res, next) {
+  res.write("<script>alert('success')</script>");
+  res.write('<script>window.location="/auth/join"</script>');
 });
 
 module.exports = router;

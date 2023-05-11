@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var mainController = require("../controllers/mainController");
+var mainService = require("../services/mainService");
 const cors = require("cors");
 
 //미들웨어 목록

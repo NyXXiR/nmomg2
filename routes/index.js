@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var mainController = require("../controllers/mainController");
+var mainService = require("../services/mainService");
 const cors = require("cors");
 
 //미들웨어 목록
@@ -26,7 +26,7 @@ router.get("/index_valorant", function (req, res, next) {
 });
 
 router.get("/test/:seq", function (req, res, next) {
-  mainController.getAllUser(req, res, next);
+  mainService.getAllUser(req, res, next);
 });
 
 router.get("/hanpy/:id", (req, res) => {

@@ -9,4 +9,15 @@
     WHERE
       seq =#{seq}
   </select>
+
+
+
+
+
+  <!--Auth 관련 SQL문-->
+
+<insert id="insertMember">
+insert into member(id,pw,nickname) values (#{id},#{pw},#{nickname})
+</insert>
+
 </mapper>

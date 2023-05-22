@@ -64,4 +64,6 @@ module.exports = {
       res.render("pages/auth/join_success");
     });
   },
+
+  //가입시 id, nickname 중복여부 체크
 };

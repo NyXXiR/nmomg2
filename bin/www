@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+//서버에서 실행하려면 루트 폴더에서 sudo pm2 start ./bin/www 입력한다.
+
 /**
  * Module dependencies.
  */

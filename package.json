@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "pm2 start ./bin/www",
-    "dev": "node ./bin/www"
+    "test": "mocha"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,7 +12,9 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "fs": "^0.0.1-security",
+    "helmet": "^7.0.0",
     "http-errors": "~1.6.3",
+    "mocha": "^10.2.0",
     "morgan": "~1.9.1",
     "mybatis-mapper": "^0.6.8",
     "mysql": "^2.18.1",

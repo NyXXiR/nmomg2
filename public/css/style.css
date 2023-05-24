@@ -6,6 +6,9 @@ body {
   padding: 0;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.content {
   text-align: center;
 }
 

@@ -33,7 +33,6 @@ router.get("/session_check", function (req, res, next) {
   console.log(req.session.user_seq);
   console.log(req.session.user_id);
   console.log(req.session.nickname);
-  res.cookie("isLogined", true);
   res.redirect("/");
 });
 

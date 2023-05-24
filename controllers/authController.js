@@ -12,8 +12,10 @@ router.get("/login", function (req, res, next) {
 
 router.post("/login", function (req, res, next) {
   //로그인 프로세스 작성
-  res.render("pages/auth/login");
+  mainService.loginCheck(req, res, next);
+  // res.render("index", { title: "너만오면고" });
 });
+
 router.get("/join", function (req, res, next) {
   res.render("pages/auth/join");
 });
@@ -27,4 +29,19 @@ router.post("/id_check", function (req, res, next) {
   // res.write('<script>window.location="/auth/join"</script>');
 });
 
+router.get("/session_check", function (req, res, next) {
+  console.log(req.session.user_seq);
+  console.log(req.session.user_id);
+  console.log(req.session.nickname);
+  res.cookie("isLogined", true);
+  res.redirect("/");
+});
+
+router.get("/logout", function (req, res, next) {
+  req.session.destroy(function (error) {
+    if (error) throw error;
+    res.cookie("isLogined", false);
+    res.redirect("/");
+  });
+});
 module.exports = router;

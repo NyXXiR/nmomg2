@@ -24,6 +24,7 @@ insert into member(id,pw,nickname) values (#{id},#{pw},#{nickname})
 select count(*) as cnt from member where id= #{id}
 </select>
 
-
-
+<select id="loginCheck">
+ select seq, id, nickname from member where id=#{id} and pw=#{pw}
+</select>
 </mapper>

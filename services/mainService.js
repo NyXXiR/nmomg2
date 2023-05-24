@@ -80,4 +80,35 @@ module.exports = {
       res.json(result);
     });
   },
+
+  //로그인가능여부 + 회원정보 조회
+  loginCheck: function (req, res, next) {
+    var param = {
+      id: req.body.id,
+      pw: req.body.pw,
+    };
+    var query = mybatisMapper.getStatement(
+      "sqlMapper",
+      "loginCheck",
+      param,
+      format
+    );
+    mysql.query(query, (error, result) => {
+      if (error) throw error;
+      if (result[0] !== undefined) {
+        /* 로그인회원정보를 세션에 기입 */
+        console.log(req.session);
+
+        req.session.user_seq = result[0].seq;
+        req.session.user_id = result[0].id;
+        req.session.nickname = result[0].nickname;
+        res.cookie("isLogined", true);
+        req.session.save(function () {
+          res.redirect("/");
+        });
+      } else {
+        res.send("입력한 정보와 일치하는 회원정보가 없습니다.");
+      }
+    });
+  },
 };

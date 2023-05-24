@@ -6,12 +6,13 @@ div.header(style='display:flex; justify-content: space-between;')
 		a(href="/index_valorant") 발로란트
 			img(src="/img/valorant.png" height="50px",width="50px")
 	p.login-check-false
+		a(href="/auth/session_check") (임시) 세션+쿠키체크
 		a(href="/auth/join") 회원가입
 		a(href="/auth/login") 로그인
 
 	p.login-check-true
 		a 마이페이지
-		a 로그아웃
+		a(href="/auth/logout") 로그아웃
 
 .container-fluid
 		h1= title

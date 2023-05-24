@@ -6,11 +6,23 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var session = require("express-session");
+var mySQLStore = require("express-mysql-session")(session);
 
 var authRouter = require("./controllers/authController");
 var boardRouter = require("./controllers/boardController");
 var starRouter = require("./controllers/starController");
 var statRouter = require("./controllers/statController");
+var cookieParser = require("cookie-parser");
+/* configuring mysql-session */
+var options = {
+  host: "3.34.245.120",
+  port: "3306",
+  user: "nmomg",
+  password: "123",
+  database: "nmomg",
+};
+var sessionStore = new mySQLStore(options);
 
 /* connect mysql */
 var mysqlDB = require("./config/mysql/db.js");
@@ -22,6 +34,16 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    store: sessionStore,
+    name: "session-cookie",
+  })
+);
+app.use(cookieParser());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

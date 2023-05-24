@@ -19,7 +19,12 @@ idInput.addEventListener("focusout", function () {
   console.log(id);
 
   //값이 비었다면 false
-
+  if (id.length == 0) {
+    $(".join-id-check").html(
+      "<p style='color:red;'>아이디를 입력해주세요.</p>"
+    );
+    return;
+  }
   //길이가 짧으면 false
 
   //한글이 포함되었다면 false

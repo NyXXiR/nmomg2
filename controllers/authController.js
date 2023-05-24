@@ -22,8 +22,9 @@ router.post("/join", function (req, res, next) {
 });
 
 router.post("/id_check", function (req, res, next) {
-  res.write("<script>alert('success')</script>");
-  res.write('<script>window.location="/auth/join"</script>');
+  mainService.memberIdCheck(req, res, next);
+  // res.write("<script>alert('success')</script>");
+  // res.write('<script>window.location="/auth/join"</script>');
 });
 
 module.exports = router;

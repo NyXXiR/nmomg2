@@ -61,9 +61,23 @@ module.exports = {
     mysql.query(query, (error, result) => {
       if (error) throw error;
       console.log("입력되었습니다.");
-      res.render("pages/auth/join_success");
     });
   },
 
-  //가입시 id, nickname 중복여부 체크
+  //가입시 id 중복여부 체크
+  memberIdCheck: function (req, res, next) {
+    var param = {
+      id: req.body.id,
+    };
+    var query = mybatisMapper.getStatement(
+      "sqlMapper",
+      "memberIdCheck",
+      param,
+      format
+    );
+    mysql.query(query, (error, result) => {
+      if (error) throw error;
+      res.json(result);
+    });
+  },
 };

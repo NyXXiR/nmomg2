@@ -20,4 +20,10 @@
 insert into member(id,pw,nickname) values (#{id},#{pw},#{nickname})
 </insert>
 
+<select id="memberIdCheck">
+select count(*) as cnt from member where id= #{id}
+</select>
+
+
+
 </mapper>

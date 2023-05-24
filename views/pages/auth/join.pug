@@ -3,9 +3,13 @@ extends ../../layouts/defaultLayout
 
 block content
     p 회원가입 페이지
-    form.join-form(method="post")
-        input.join-id(type="text" name="id" placeholder="아이디입력")
-        input.join-id-check(type="submit" value="아이디중복체크" formaction="/auth/id_check")
+    form.join-form(method="post" style="text-align:center")
+        input.join-id(type="text" id="idInput" name="id" placeholder="아이디입력")
+
+        .join-id-check
         br
         input.join-pw(type="text" name="pw" placeholder="비밀번호입력")
         input.join-submit(type="submit" formaction="/auth/join")
+
+block script
+    script(src='/js/auth/join.js')

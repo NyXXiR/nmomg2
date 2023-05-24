@@ -18,7 +18,7 @@ console.log(document.cookie);
 const strings = document.cookie.split("=");
 console.log(strings);
 
-/* 로그인체크 */
+/* 로그인체크 - 일단 쿠키가 1개라 [1]로 임시 설정했는데 나중에 확장할 여지 있음*/
 
 if (strings[1] == "true") {
   $(".login-check-false").css("display", "none");

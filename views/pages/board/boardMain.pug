@@ -1,1 +1,13 @@
-extends ./layouts/defaultLayout
+extends ../../layouts/defaultLayout
+
+
+block content
+    p 게시판 메인페이지
+
+    div 게시판목록
+    a(href="/board/recruit") 팀원구하기
+    a(href="/board/humor") 유머게시판
+    a(href="/board/free") 자유게시판
+
+    div 기능
+    a(href="/board/insert") 글쓰기

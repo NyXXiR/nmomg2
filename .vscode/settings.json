@@ -1,18 +1,6 @@
 {
   "favorites.resources": [
     {
-      "filePath": "controllers\\authController.js",
-      "group": "Default"
-    },
-    {
-      "filePath": "views\\layouts\\defaultLayout.pug",
-      "group": "Default"
-    },
-    {
-      "filePath": "public\\js\\auth\\join.js",
-      "group": "Default"
-    },
-    {
       "filePath": "services\\mainService.js",
       "group": "Default"
     },
@@ -21,11 +9,11 @@
       "group": "Default"
     },
     {
-      "filePath": "views\\pages\\auth",
+      "filePath": "public\\js\\overall.js",
       "group": "Default"
     },
     {
-      "filePath": "public\\js\\overall.js",
+      "filePath": "views\\pages\\board",
       "group": "Default"
     }
   ]

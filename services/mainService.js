@@ -103,6 +103,7 @@ module.exports = {
         req.session.user_id = result[0].id;
         req.session.nickname = result[0].nickname;
         res.cookie("isLogined", true);
+        res.cookie("nickname", result[0].nickname);
         req.session.save(function () {
           res.redirect("/");
         });

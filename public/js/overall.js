@@ -15,12 +15,14 @@ console.log("check");
 */
 
 console.log(document.cookie);
-const strings = document.cookie.split("=");
-console.log(strings);
+const getCookieValue = (name) =>
+  document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)")?.pop() || "";
 
-/* 로그인체크 - 일단 쿠키가 1개라 [1]로 임시 설정했는데 나중에 확장할 여지 있음*/
+var isLogined_value = getCookieValue("isLogined");
+var nickname_value = getCookieValue("nickname");
+//배열로 잘랐으니까 배열에서 각 key(nickname, islogined 등)를 포함하는 문자열을 검색해서 다시 잘라서 쓰자
 
-if (strings[1] == "true") {
+if (isLogined_value == "true") {
   $(".login-check-false").css("display", "none");
   $(".login-check-true").css("display", "inline");
 } else {

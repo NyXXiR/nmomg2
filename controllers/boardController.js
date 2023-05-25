@@ -6,4 +6,24 @@ const cors = require("cors");
 //미들웨어 목록
 router.use(cors());
 
+router.get("/", function (req, res, next) {
+  res.render("pages/board/boardMain");
+});
+
+router.get("/recruit", function (req, res, next) {
+  res.render("pages/board/recruit");
+});
+
+router.get("/humor", function (req, res, next) {
+  res.render("pages/board/humor");
+});
+
+router.get("/free", function (req, res, next) {
+  res.render("pages/board/free");
+});
+
+router.get("/insert", function (req, res, next) {
+  res.render("pages/board/insert");
+});
+
 module.exports = router;

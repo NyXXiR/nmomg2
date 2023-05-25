@@ -4,7 +4,15 @@ block content
     h1 글쓰기
 
 
-    form.login-form(action="/auth/login" method="post")
-        input.login-id(type="text" name="id" placeholder="아이디입력")
-        input.login-pw(type="text" name="pw" placeholder="비밀번호입력")
+    form.board-form(action="/board/insert" method="post")
+        select.category(name="category" id="category-select")
+            option(value="") 카테고리를 고르세요
+            option(value="recruit") 팀원구하기
+            option(value="humor") 유머게시판
+            option(value="free") 자유게시판
+
+        br
+        input.title(type="text" name="title" placeholder="제목입력")
+        br
+        input.content(type="text" name="content" placeholder="내용")
         input.login-submit(type="submit")

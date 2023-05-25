@@ -10,19 +10,12 @@ router.get("/", function (req, res, next) {
   res.render("pages/board/boardMain");
 });
 
-router.get("/recruit", function (req, res, next) {
-  res.render("pages/board/recruit");
-});
-
-router.get("/humor", function (req, res, next) {
-  res.render("pages/board/humor");
-});
-
-router.get("/free", function (req, res, next) {
-  res.render("pages/board/free");
-});
-
+/* 게시글 작성 라우터*/
 router.get("/insert", function (req, res, next) {
+  res.render("pages/board/insert");
+});
+
+router.post("/insert", function (req, res, next) {
   res.render("pages/board/insert");
 });
 

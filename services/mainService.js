@@ -109,7 +109,7 @@ module.exports = {
           res.redirect("/");
         });
       } else {
-        res.send("입력한 정보와 일치하는 회원정보가 없습니다.");
+        res.render("pages/auth/login");
       }
     });
   },

@@ -26,4 +26,9 @@ router.get("/insert", function (req, res, next) {
   res.render("pages/board/insert");
 });
 
+router.get("/list/:category", function (req, res, next) {
+  console.log(req.params.category);
+  mainService.selectBoardByCategory(req, res, next);
+});
+
 module.exports = router;

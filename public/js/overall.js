@@ -14,12 +14,15 @@ console.log("check");
         req.session.isLogined의 true/false 여부로 표시되는 헤더 목록 결정
 */
 
+//내가만든쿠키를 가져와서 여기저기 쓸거임~
 console.log(document.cookie);
 const getCookieValue = (name) =>
   document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)")?.pop() || "";
 
 var isLogined_value = getCookieValue("isLogined");
-var nickname_value = getCookieValue("nickname");
+var nickname_value = decodeURIComponent(getCookieValue("nickname"));
+
+$(".nickname").text(nickname_value + "님");
 //배열로 잘랐으니까 배열에서 각 key(nickname, islogined 등)를 포함하는 문자열을 검색해서 다시 잘라서 쓰자
 
 if (isLogined_value == "true") {

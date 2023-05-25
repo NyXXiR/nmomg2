@@ -20,6 +20,7 @@ function generateRandomCode(n) {
 }
 
 module.exports = {
+  /* -----------------------auth 메소드 시작 -----------------------*/
   //쿼리 조회 후 결과 전송하는 메소드
   getAllUser: function (req, res, next) {
     var param = {
@@ -110,6 +111,28 @@ module.exports = {
       } else {
         res.send("입력한 정보와 일치하는 회원정보가 없습니다.");
       }
+    });
+  },
+  /* -----------------------auth 메소드 끝 -----------------------*/
+
+  /* -----------------------board 메소드 시작 -----------------------*/
+  selectBoardByCategory: function (req, res, next) {
+    var param = {
+      category: req.params.category,
+    };
+    var query = mybatisMapper.getStatement(
+      "sqlMapper",
+      "selectBoardByCategory",
+      param,
+      format
+    );
+    mysql.query(query, (error, result) => {
+      console.log(result);
+
+      res.render("pages/board/list", {
+        category: req.params.category,
+        result: result,
+      });
     });
   },
 };

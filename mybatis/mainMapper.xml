@@ -27,4 +27,11 @@ select count(*) as cnt from member where id= #{id}
 <select id="loginCheck">
  select seq, id, nickname from member where id=#{id} and pw=#{pw}
 </select>
+
+
+
+<!--Board 관련 SQL문-->
+<select id="selectBoardByCategory">
+select * from board where category=#{category}
+</select>
 </mapper>

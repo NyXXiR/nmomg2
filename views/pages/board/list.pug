@@ -1,5 +1,21 @@
-extends ../../layouts/defaultLayout
+extends ../../layouts/sidebarLayout
 
 
 block content
-   p 카테고리를 파라미터로 받아서 게시글 리스트를 리턴, 페이지네이션 해야함
+    p 카테고리를 파라미터로 받아서 게시글 리스트를 리턴, 페이지네이션 해야함
+    p #{category} 게시판
+
+
+    ul
+        each eachResult in result
+            li= eachResult.writerSeq
+            li=eachResult.title
+            li=eachResult.category
+            li=eachResult.content
+            br
+        else
+            li there are no results
+
+block script
+    script(src='/js/board/list.js')
+

@@ -9,6 +9,28 @@
 var app = require("../app");
 var debug = require("debug")("nmomg2:server");
 var http = require("http");
+var https = require("https");
+var fs = require("fs");
+
+// Certificate 인증서 경로
+const privateKey = fs.readFileSync(
+  "/etc/letsencrypt/live/nmomg.com-0001/privkey.pem",
+  "utf8"
+);
+const certificate = fs.readFileSync(
+  "/etc/letsencrypt/live/nmomg.com-0001/cert.pem",
+  "utf8"
+);
+const ca = fs.readFileSync(
+  "/etc/letsencrypt/live/nmomg.com-0001/chain.pem",
+  "utf8"
+);
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca,
+};
 
 /**
  * Get port from environment and store in Express.

@@ -23,8 +23,8 @@ var isLogined_value = getCookieValue("isLogined");
 var nickname_value = decodeURIComponent(getCookieValue("nickname"));
 
 $(".nickname").text(nickname_value + "님");
-//배열로 잘랐으니까 배열에서 각 key(nickname, islogined 등)를 포함하는 문자열을 검색해서 다시 잘라서 쓰자
 
+//로그인여부를 체크해 헤더 내용 결정
 if (isLogined_value == "true") {
   $(".login-check-false").css("display", "none");
   $(".login-check-true").css("display", "inline");

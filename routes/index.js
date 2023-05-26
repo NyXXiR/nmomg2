@@ -36,6 +36,10 @@ router.get("/index_valorant", function (req, res, next) {
   res.render("index_valorant", { title: "너만오면고" });
 });
 
+router.get("/index_diablo4", function (req, res, next) {
+  res.render("index_diablo4", { title: "너만오면고" });
+});
+
 router.get("/test/:seq", function (req, res, next) {
   mainService.getAllUser(req, res, next);
 });

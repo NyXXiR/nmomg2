@@ -24,4 +24,11 @@ router.get("/list/:category", function (req, res, next) {
   mainService.selectBoardByCategory(req, res, next);
 });
 
+router.get("/leaderboard/:className", function (req, res, next) {
+  console.log(req.params.className);
+  res.render("pages/board/detail_class", {
+    className: req.params.className,
+  });
+});
+
 module.exports = router;

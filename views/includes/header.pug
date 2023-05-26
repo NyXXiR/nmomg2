@@ -2,10 +2,13 @@ div.header(style='display:flex; justify-content: space-between;')
 
 	p
 		a(href="/") NMOMG
-		a(href="/index_league_of_legend") 리그오브레전드
-			img(src="/img/league_of_legend.png"  height="50px",width="50px")
+		a(href="/index_diablo4") 디아블로4
+			img(src="/img/diablo4.png"  height="50px",width="50px")
 		a(href="/index_valorant") 발로란트
 			img(src="/img/valorant.png" height="50px",width="50px")
+		a(href="/index_league_of_legend") 리그오브레전드
+			img(src="/img/league_of_legend.png"  height="50px",width="50px")
+
 	form.login-check-false.login-form(action="/auth/login" method="post")
 			a(href="/auth/session_check") (임시) 세션+쿠키체크
 			a(href="/auth/join") 회원가입

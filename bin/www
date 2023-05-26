@@ -51,7 +51,7 @@ var httpsServer = https.createServer(credentials, app);
  */
 
 server.listen(port);
-httpsServer.listen(443);
+httpsServer.listen(443, () => console.log("HTTPS Server running on port 443"));
 server.on("error", onError);
 server.on("listening", onListening);
 

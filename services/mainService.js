@@ -141,15 +141,32 @@ module.exports = {
     };
     const params = new URLSearchParams(config).toString();
     const finalUrl = `${baseUrl}?${params}`;
-    const kakaoTokenRequest = await fetch(finalUrl, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json", // 이 부분을 명시하지않으면 text로 응답을 받게됨
-      },
-    });
-    const json = await kakaoTokenRequest.json();
-    console.log(json);
-    res.send(JSON.stringify(json)); // 프론트엔드에서 확인하려고
+    const kakaoTokenRequest = await (
+      await fetch(finalUrl, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json", // 이 부분을 명시하지않으면 text로 응답을 받게됨
+        },
+      })
+    ).json();
+
+    //만약 토큰을 받는 데 성공했다면 토큰을 사용함
+    if ("access_token" in kakaoTokenRequest) {
+      // 엑세스 토큰이 있는 경우 API에 접근
+      const { access_token } = kakaoTokenRequest;
+      const userRequest = await (
+        await fetch("https://kapi.kakao.com/v2/user/me", {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+        })
+      ).json();
+      res.send(userRequest);
+    } else {
+      // 엑세스 토큰이 없으면 로그인페이지로 리다이렉트
+      return res.redirect("/login");
+    }
   },
 
   /* -----------------------auth 메소드 끝 -----------------------*/

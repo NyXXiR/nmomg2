@@ -62,6 +62,7 @@ module.exports = {
     mysql.query(query, (error, result) => {
       if (error) throw error;
       console.log("입력되었습니다.");
+      res.render("pages/auth/join_success");
     });
   },
 

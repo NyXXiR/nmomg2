@@ -12,20 +12,16 @@ var http = require("http");
 var https = require("https");
 var fs = require("fs");
 
-/**
- * Get port from environment and store in Express.
- */
-
-var port = normalizePort(process.env.PORT || "80");
-app.set("port", port);
-
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app);
-
 if (process.env.NODE_ENV === "production") {
+  const domain = "nmomg.com";
+  /*http로 접속시 https로 redirect */
+  app.use(function (req, res, next) {
+    if (!req.secure) {
+      res.redirect(`https://${domain}${req.url}`);
+    } else {
+      next();
+    }
+  });
   // Certificate 인증서 경로
   const privateKey = fs.readFileSync(
     "/etc/letsencrypt/live/nmomg.com/privkey.pem",
@@ -54,15 +50,28 @@ if (process.env.NODE_ENV === "production") {
 
   httpsServer.on("error", onError);
   httpsServer.on("listening", onListening);
-} else {
+}
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || "80");
+app.set("port", port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-  server.listen(port);
+server.listen(port);
 
-  server.on("error", onError);
-  server.on("listening", onListening);
-}
+server.on("error", onError);
+server.on("listening", onListening);
+
 /**
  * Normalize a port into a number, string, or false.
  */

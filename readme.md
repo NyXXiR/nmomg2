@@ -1,6 +1,5 @@
 project run command: sudo pm2 start ./bin/www
 
-session parameter
 
 auth 관련 parameter
 user_seq(board_seq과 혼동의 여지 있어 user_seq 사용)

@@ -50,3 +50,12 @@ idInput.addEventListener("focusout", function () {
     }
   });
 });
+
+
+/* 
+focusout 2개 더 만들어야함
+비밀번호 조건만들기
+
+비밀번호확인 > 일치여부 확인
+
+*/

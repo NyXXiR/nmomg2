@@ -13,15 +13,8 @@ var https = require("https");
 var fs = require("fs");
 
 if (process.env.NODE_ENV === "production") {
-  const domain = "nmomg.com";
-  /*http로 접속시 https로 redirect */
-  app.use(function (req, res, next) {
-    if (!req.secure) {
-      res.redirect(`https://${domain}${req.url}`);
-    } else {
-      next();
-    }
-  });
+
+
   // Certificate 인증서 경로
   const privateKey = fs.readFileSync(
     "/etc/letsencrypt/live/nmomg.com/privkey.pem",

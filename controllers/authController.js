@@ -43,4 +43,13 @@ router.get("/logout", function (req, res, next) {
     res.redirect("/");
   });
 });
+
+//카카오 로그인 핸들러
+router.get("/kakao/start", function (req, res, next) {
+  mainService.getKakaoLoginUrl(req, res, next);
+});
+
+router.get("/kakao/finish", function (req, res, next) {
+  mainService.finishKakaoLogin(req, res, next);
+});
 module.exports = router;

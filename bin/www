@@ -9,36 +9,25 @@
 var app = require("../app");
 var debug = require("debug")("nmomg2:server");
 var http = require("http");
+var https = require("https");
 var fs = require("fs");
 
-//https 인증서 코드
-if (process.env.NODE_ENV == "production") {
-  var https = require("https");
-  // Certificate 인증서 경로
-  const privateKey = fs.readFileSync(
-    "/etc/letsencrypt/live/nmomg.com/privkey.pem",
-    "utf8"
-  );
-  const certificate = fs.readFileSync(
-    "/etc/letsencrypt/live/nmomg.com/cert.pem",
-    "utf8"
-  );
-  const ca = fs.readFileSync(
-    "/etc/letsencrypt/live/nmomg.com/chain.pem",
-    "utf8"
-  );
+// Certificate 인증서 경로
+const privateKey = fs.readFileSync(
+  "/etc/letsencrypt/live/nmomg.com/privkey.pem",
+  "utf8"
+);
+const certificate = fs.readFileSync(
+  "/etc/letsencrypt/live/nmomg.com/cert.pem",
+  "utf8"
+);
+const ca = fs.readFileSync("/etc/letsencrypt/live/nmomg.com/chain.pem", "utf8");
 
-  const credentials = {
-    key: privateKey,
-    cert: certificate,
-    ca: ca,
-  };
-
-  var httpsServer = https.createServer(credentials, app);
-  httpsServer.listen(443, () =>
-    console.log("HTTPS Server running on port 443")
-  );
-}
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca,
+};
 
 /**
  * Get port from environment and store in Express.
@@ -52,13 +41,14 @@ app.set("port", port);
  */
 
 var server = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
-
+httpsServer.listen(443, () => console.log("HTTPS Server running on port 443"));
 server.on("error", onError);
 server.on("listening", onListening);
 

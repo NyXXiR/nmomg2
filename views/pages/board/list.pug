@@ -6,15 +6,16 @@ block content
     p #{category} 게시판
 
 
-    ul
+    .container-board
         each eachResult in result
-            li= eachResult.writerSeq
-            li=eachResult.title
-            li=eachResult.category
-            li=eachResult.content
-            br
+            a.container-board-each
+                p='닉네임: '+eachResult.nickname
+                p='제목: '+eachResult.title
+                p='카테고리: '+eachResult.category
+                p='내용: '+eachResult.content
+                br
         else
-            li there are no results
+            =`there are no results`
 
 block script
     script(src='/js/board/list.js')

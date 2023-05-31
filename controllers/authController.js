@@ -11,7 +11,7 @@ router.get("/login", function (req, res, next) {
 });
 
 router.post("/login", function (req, res, next) {
-  //로그인 프로세스 작성
+  //로그인 가능 여부를 체크하고 seq, user_id, nickname을 세션에 저장
   mainService.loginCheck(req, res, next);
   // res.render("index", { title: "너만오면고" });
 });

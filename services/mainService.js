@@ -168,6 +168,9 @@ module.exports = {
           },
         })
       ).json();
+      console.log(userRequest.id);
+      console.log(userRequest.properties.nickname);
+      console.log(userRequest.properties.thumbnail_image);
       res.send(userRequest);
     } else {
       // 엑세스 토큰이 없으면 로그인페이지로 리다이렉트

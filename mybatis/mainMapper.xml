@@ -32,6 +32,6 @@ select count(*) as cnt from member where id= #{id}
 
 <!--Board 관련 SQL문-->
 <select id="selectBoardByCategory">
-select * from board where category like concat(#{category},'%')
+select * from board join member on board.writerSeq=member.seq where category like concat(#{category},'%')
 </select>
 </mapper>

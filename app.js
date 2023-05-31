@@ -9,6 +9,7 @@ var usersRouter = require("./routes/users");
 var session = require("express-session");
 var mySQLStore = require("express-mysql-session")(session);
 
+var apiRouter = require("./controllers/apiController");
 var authRouter = require("./controllers/authController");
 var boardRouter = require("./controllers/boardController");
 var starRouter = require("./controllers/starController");
@@ -63,6 +64,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/api", apiRouter);
 app.use("/auth", authRouter);
 app.use("/board", boardRouter);
 app.use("/star", starRouter);

@@ -44,6 +44,22 @@ router.get("/logout", function (req, res, next) {
   });
 });
 
+//마이페이지 관련 라우터 - 개인정보변경, 탈퇴 등
+
+router.get("/myPage", function (req, res, next) {
+  res.render("pages/member/myPageMain");
+});
+
+router.get("/change_password", function (req, res, next) {
+  res.render("pages/member/change_password");
+});
+router.get("/change_nickname", function (req, res, next) {
+  res.render("pages/member/change_nickname");
+});
+router.get("/quit_member", function (req, res, next) {
+  res.render("pages/member/quit_member");
+});
+
 //카카오 로그인 핸들러
 router.get("/kakao/start", function (req, res, next) {
   mainService.getKakaoLoginUrl(req, res, next);

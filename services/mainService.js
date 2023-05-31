@@ -123,6 +123,9 @@ module.exports = {
       redirect_uri: "http://localhost/auth/kakao/finish",
       response_type: "code",
     };
+    if (process.env.NODE_ENV === "production") {
+      config.redirect_uri = "https://nmomg.com/auth/kakao/finish";
+    }
     const params = new URLSearchParams(config).toString();
 
     const finalUrl = `${baseUrl}?${params}`;
@@ -139,6 +142,9 @@ module.exports = {
       redirect_uri: "http://localhost/auth/kakao/finish",
       code: req.query.code,
     };
+    if (process.env.NODE_ENV === "production") {
+      config.redirect_uri = "https://nmomg.com/auth/kakao/finish";
+    }
     const params = new URLSearchParams(config).toString();
     const finalUrl = `${baseUrl}?${params}`;
     const kakaoTokenRequest = await (

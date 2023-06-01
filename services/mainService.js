@@ -66,6 +66,26 @@ module.exports = {
     });
   },
 
+  kakaoInsertMember: function (req, res, next) {
+    console.log(req.body.id);
+    var param = {
+      id: req.session.kakao_id,
+      nickname: "임시닉네임" + "#" + generateRandomCode(4),
+    };
+    var query = mybatisMapper.getStatement(
+      "sqlMapper",
+      "kakaoInsertMember",
+      param,
+      format
+    );
+    console.log(query);
+    mysql.query(query, (error, result) => {
+      if (error) throw error;
+      console.log("회원가입되었습니다.");
+      res.render("pages/auth/join_success");
+    });
+  },
+
   //가입시 id 중복여부 체크
   memberIdCheck: function (req, res, next) {
     var param = {
@@ -116,6 +136,8 @@ module.exports = {
   },
 
   /* 카카오 로그인 */
+
+  //인가코드를 요청
   getKakaoLoginUrl: function (req, res, next) {
     const baseUrl = "https://kauth.kakao.com/oauth/authorize";
     const config = {
@@ -155,7 +177,7 @@ module.exports = {
         },
       })
     ).json();
-
+    console.log(kakaoTokenRequest);
     //만약 토큰을 받는 데 성공했다면 토큰을 사용함
     if ("access_token" in kakaoTokenRequest) {
       // 엑세스 토큰이 있는 경우 API에 접근
@@ -171,12 +193,83 @@ module.exports = {
       console.log(userRequest.id);
       console.log(userRequest.properties.nickname);
       console.log(userRequest.properties.thumbnail_image);
-
-      res.send(userRequest);
+      req.session.kakao_id = userRequest.id;
+      req.session.access_token = access_token;
+      //실행순서를 보장하려면 리다이렉트가 save 안에 있어야 함
+      req.session.save(function (err) {
+        if (err) throw err;
+        return res.redirect("/auth/kakao/loginProcess");
+      });
     } else {
       // 엑세스 토큰이 없으면 로그인페이지로 리다이렉트
-      return res.redirect("/login");
+      return res.redirect("/auth/login");
     }
+  },
+  /*카카오에서 제공한 id를 바탕으로 로그인/회원가입을 진행하는 메소드 */
+  connectKakaoId: function (req, res, next) {
+    //세션의 id 정보 조회, 정보 없으면 뱉음
+    if (req.session.kakao_id) {
+      var param = {
+        id: req.session.kakao_id,
+      };
+    } else {
+      return res.send("세션에 카카오톡 정보가 존재하지 않습니다.");
+    }
+
+    var query = mybatisMapper.getStatement(
+      "sqlMapper",
+      "kakaoLoginCheck",
+      param,
+      format
+    );
+
+    mysql.query(query, (error, result) => {
+      if (error) throw error;
+      console.log("result: ==========" + result);
+
+      if (result == "") {
+        console.log("값이 비어있습니다. 회원가입 진행");
+        this.kakaoInsertMember(req, res, next);
+      } else {
+        req.session.user_seq = result[0].seq;
+        req.session.user_id = result[0].id;
+        req.session.nickname = result[0].nickname;
+        res.cookie("isLogined", true);
+        res.cookie("nickname", result[0].nickname);
+        req.session.save(function () {
+          res.redirect("/");
+        });
+      }
+    });
+
+    //쿼리 조회값이 있다면 해당 아이디로 로그인, 없다면 회원가입
+  },
+
+  //세션에 토큰이 있어야만 로그아웃이 가능하다.
+  kakaoLogout: async function (req, res, next) {
+    console.log(req.session.access_token);
+    const baseUrl = "https://kapi.kakao.com/v1/user/unlink";
+    const config = {
+      "content-type": "application/x-www-form-urlencoded",
+      target_id_type: "user_id",
+      target_id: req.session.kakao_id,
+      Authorization: `Bearer ${req.session.access_token}`,
+      client_id: "a3f9c0bf60a1f00f9edaef98b434f578",
+      redirect_uri: "http://localhost/auth/kakao/finish",
+    };
+    const params = new URLSearchParams(config).toString();
+    const finalUrl = `${baseUrl}?${params}`;
+    const kakaoTokenRequest = await (
+      await fetch(finalUrl, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${req.session.access_token}`,
+          "content-type": "application/x-www-form-urlencoded",
+        },
+      })
+    ).json();
+    console.log(kakaoTokenRequest);
+    console.log("카카오 로그아웃!!!!");
   },
 
   /* -----------------------auth 메소드 끝 -----------------------*/

@@ -20,6 +20,10 @@
 insert into member(id,pw,nickname) values (#{id},#{pw},#{nickname})
 </insert>
 
+<insert id="kakaoInsertMember">
+insert into member(id,nickname) values (#{id},#{nickname})
+</insert>
+
 <select id="memberIdCheck">
 select count(*) as cnt from member where id= #{id}
 </select>
@@ -28,6 +32,9 @@ select count(*) as cnt from member where id= #{id}
  select seq, id, nickname from member where id=#{id} and pw=#{pw}
 </select>
 
+<select id="kakaoLoginCheck">
+ select seq, id, nickname from member where id=#{id}
+</select>
 
 
 <!--Board 관련 SQL문-->

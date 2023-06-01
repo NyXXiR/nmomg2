@@ -37,6 +37,12 @@ router.get("/session_check", function (req, res, next) {
 });
 
 router.get("/logout", function (req, res, next) {
+  console.log(req.session.kakao_id);
+  console.log(req.session.access_token);
+  if (req.session.kakao_id) {
+    mainService.kakaoLogout(req, res, next);
+    console.log("카카오 로그아웃!!!!");
+  }
   req.session.destroy(function (error) {
     if (error) throw error;
     res.cookie("isLogined", false);
@@ -61,11 +67,20 @@ router.get("/quit_member", function (req, res, next) {
 });
 
 //카카오 로그인 핸들러
-router.get("/kakao/start", function (req, res, next) {
-  mainService.getKakaoLoginUrl(req, res, next);
+router.get("/kakao/start", async function (req, res, next) {
+  await mainService.getKakaoLoginUrl(req, res, next);
 });
 
 router.get("/kakao/finish", function (req, res, next) {
   mainService.finishKakaoLogin(req, res, next);
 });
+
+router.get("/kakao/loginProcess", function (req, res, next) {
+  mainService.connectKakaoId(req, res, next);
+});
+
+router.get("/kakao/logout", function (req, res, next) {
+  mainService.kakaoLogout(req, res, next);
+});
+
 module.exports = router;

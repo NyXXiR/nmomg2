@@ -27,6 +27,10 @@
     {
       "filePath": "controllers\\apiController.js",
       "group": "Default"
+    },
+    {
+      "filePath": "controllers\\authController.js",
+      "group": "Default"
     }
   ]
 }

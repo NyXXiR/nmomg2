@@ -11,8 +11,8 @@ router.get("/", function (req, res, next) {
 });
 
 /* 게시글 작성 라우터*/
-router.get("/insert", function (req, res, next) {
-  res.render("pages/board/insert");
+router.get("/insert/:category", function (req, res, next) {
+  res.render("pages/board/insert", { category: req.params.category });
 });
 
 router.post("/insert", function (req, res, next) {
@@ -33,9 +33,9 @@ router.post("/insert/:category", function (req, res, next) {
   var category = req.params.category;
   mainService.selectIdandTierBySeqAndCategory(seq, category);
 
-  res.render("pages/board/insert", {
-    category: category,
-  });
+  // res.render("pages/board/insert", {
+  //   category: category,
+  // });
 });
 
 router.get("/list/:category", function (req, res, next) {

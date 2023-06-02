@@ -294,4 +294,20 @@ module.exports = {
       });
     });
   },
+
+  selectIdAndTierBySeqAndCategory: (seq, category) => {
+    var param = {
+      seq: seq,
+      category: category,
+    };
+    var query = mybatisMapper.getStatement(
+      "sqlMapper",
+      "selectIdAndTierBySeqAndCategory",
+      param,
+      format
+    );
+    mysql.query(query, (error, result) => {
+      console.log(result);
+    });
+  },
 };

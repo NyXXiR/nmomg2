@@ -21,7 +21,7 @@ insert into member(id,pw,nickname) values (#{id},#{pw},#{nickname})
 </insert>
 
 <insert id="kakaoInsertMember">
-insert into member(id,nickname) values (#{id},#{nickname})
+insert into member(id,nickname,auth_provider) values (#{id},#{nickname},'kakao')
 </insert>
 
 <select id="memberIdCheck">
@@ -41,4 +41,8 @@ select count(*) as cnt from member where id= #{id}
 <select id="selectBoardByCategory">
 select * from board join member on board.writerSeq=member.seq where category like concat(#{category},'%')
 </select>
+
+<select id="selectIdAndTierBySeqAndCategory">
+select tier_#{category}, id_#{category} from member where seq=#{seq}
+
 </mapper>

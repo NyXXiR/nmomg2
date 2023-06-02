@@ -19,18 +19,6 @@
     {
       "filePath": "controllers\\boardController.js",
       "group": "Default"
-    },
-    {
-      "filePath": "services\\diablo4Service.js",
-      "group": "Default"
-    },
-    {
-      "filePath": "controllers\\apiController.js",
-      "group": "Default"
-    },
-    {
-      "filePath": "controllers\\authController.js",
-      "group": "Default"
     }
   ]
 }

@@ -41,7 +41,6 @@ router.get("/logout", function (req, res, next) {
   console.log(req.session.access_token);
   if (req.session.kakao_id) {
     mainService.kakaoLogout(req, res, next);
-    console.log("카카오 로그아웃!!!!");
   }
   req.session.destroy(function (error) {
     if (error) throw error;

@@ -2,11 +2,11 @@ div.header(style='display:flex; justify-content: space-between;')
 
 	p
 		a(href="/") NMOMG
-		a(href="/index_diablo4") 디아블로4
+		a(href="/board/main/diablo4") 디아블로4
 			img(src="/img/diablo4.png"  height="50px",width="50px")
-		a(href="/index_valorant") 발로란트
+		a(href="/board/main/valorant") 발로란트
 			img(src="/img/valorant.png" height="50px",width="50px")
-		a(href="/index_league_of_legend") 리그오브레전드
+		a(href="/board/main/lol") 리그오브레전드
 			img(src="/img/league_of_legend.png"  height="50px",width="50px")
 
 	form.login-check-false.login-form(action="/auth/login" method="post")
@@ -25,14 +25,14 @@ div.header(style='display:flex; justify-content: space-between;')
 		a(href="/auth/logout") 로그아웃
 .title-sub
 		h1= title
-		p Welcome to #{title}
+		p Welcome to #{title} #{game}
 
 .row
 		.col-3
-			a(href="/board/list/recruit") 팀원구하기
+			a(href=`/board/recruit/${game}`) 팀원구하기
 		.col-3
-			a(href="/board") 게시판목록
+			a(href=`/board/community/${game}`) 커뮤니티
 		.col-3
-			a(href="/stat") 전적 상세검색
+			a(href=`/board/additional1/${game}`) 추가기능1(전적검색, 리더보드 등)
 		.col-3
-			a(href="/sidebar") 사이드바 체크용
+			a(href="/sidebar") 사이드바 체크용(필요시 추가기능2 - additional2로 활용)

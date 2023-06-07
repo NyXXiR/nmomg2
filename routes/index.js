@@ -28,16 +28,11 @@ router.get("/sidebar", function (req, res, next) {
   res.render("index_with_sidebar", { title: "너만오면고" });
 });
 
-router.get("/index_league_of_legend", function (req, res, next) {
-  res.render("index_league_of_legend", { title: "너만오면고" });
-});
-
-router.get("/index_valorant", function (req, res, next) {
-  res.render("index_valorant", { title: "너만오면고" });
-});
-
-router.get("/index_diablo4", function (req, res, next) {
-  res.render("index_diablo4", { title: "너만오면고" });
+router.get("/index_:game", function (req, res, next) {
+  res.render("index_" + req.params.game, {
+    title: "너만오면고",
+    game: req.params.game,
+  });
 });
 
 router.get("/test/:seq", function (req, res, next) {

@@ -19,6 +19,14 @@
     {
       "filePath": "controllers\\boardController.js",
       "group": "Default"
+    },
+    {
+      "filePath": "routes\\index.js",
+      "group": "Default"
+    },
+    {
+      "filePath": "views\\includes\\header.pug",
+      "group": "Default"
     }
   ]
 }

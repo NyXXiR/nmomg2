@@ -275,13 +275,14 @@ module.exports = {
   /* -----------------------auth 메소드 끝 -----------------------*/
 
   /* -----------------------board 메소드 시작 -----------------------*/
-  selectBoardByCategory: function (req, res, next) {
+  selectBoardByCategoryAndGame: function (req, res, next) {
     var param = {
       category: req.params.category,
+      game: req.params.game,
     };
     var query = mybatisMapper.getStatement(
       "sqlMapper",
-      "selectBoardByCategory",
+      "selectBoardByCategoryAndGame",
       param,
       format
     );
@@ -290,6 +291,7 @@ module.exports = {
 
       res.render("pages/board/list", {
         category: req.params.category,
+        game: req.params.game,
         result: result,
       });
     });

@@ -10,6 +10,13 @@ router.get("/", function (req, res, next) {
   res.render("pages/board/boardMain");
 });
 
+router.get("/main/:game", function (req, res, next) {
+  res.render("index_" + req.params.game, {
+    title: "너만오면고",
+    game: req.params.game,
+  });
+});
+
 /* 게시글 작성 라우터*/
 router.get("/insert/:category", function (req, res, next) {
   res.render("pages/board/insert", { category: req.params.category });
@@ -38,9 +45,10 @@ router.post("/insert/:category", function (req, res, next) {
   // });
 });
 
-router.get("/list/:category", function (req, res, next) {
-  console.log(req.params.category);
-  mainService.selectBoardByCategory(req, res, next);
+//selectBoardByCategoryAndGame으로 매퍼새로짜야함
+
+router.get("/:category/:game", function (req, res, next) {
+  mainService.selectBoardByCategoryAndGame(req, res, next);
 });
 
 /* 디아블로 board 관련 라우터 */

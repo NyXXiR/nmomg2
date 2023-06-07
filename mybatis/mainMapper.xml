@@ -38,8 +38,8 @@ select count(*) as cnt from member where id= #{id}
 
 
 <!--Board 관련 SQL문-->
-<select id="selectBoardByCategory">
-select * from board join member on board.writerSeq=member.seq where category like concat(#{category},'%')
+<select id="selectBoardByCategoryAndGame">
+select * from board join member on board.writerSeq=member.seq where category like concat(#{category},'%') and game like #{game}
 </select>
 
 <select id="selectIdAndTierBySeqAndCategory">

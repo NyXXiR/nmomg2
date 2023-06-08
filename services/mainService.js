@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var fetch = require("node-fetch");
+var schedule = require("node-schedule");
 /* mybatis $ npm i mybatis-mapper */
 const mybatisMapper = require("mybatis-mapper");
 mybatisMapper.createMapper(["./mybatis/mainMapper.xml"]);
@@ -19,6 +20,16 @@ function generateRandomCode(n) {
   return str;
 }
 
+function selectBoardSeqByMax() {
+  var query = mybatisMapper.getStatement(
+    "sqlMapper",
+    "selectBoardSeqByMax",
+    format
+  );
+  mysql.query(query, (err, result) => {
+    if (err) throw err;
+  });
+}
 module.exports = {
   /* -----------------------auth 메소드 시작 -----------------------*/
   //쿼리 조회 후 결과 전송하는 메소드
@@ -33,7 +44,7 @@ module.exports = {
       format
     );
     console.log(query);
-    mysql.query(query, (error, rows) => {
+    mysql.query(query, (err, rows) => {
       console.log(rows);
 
       var rowList = [];
@@ -59,8 +70,8 @@ module.exports = {
       format
     );
     console.log(query);
-    mysql.query(query, (error, result) => {
-      if (error) throw error;
+    mysql.query(query, (err, result) => {
+      if (err) throw err;
       console.log("입력되었습니다.");
       res.render("pages/auth/join_success");
     });
@@ -79,8 +90,8 @@ module.exports = {
       format
     );
     console.log(query);
-    mysql.query(query, (error, result) => {
-      if (error) throw error;
+    mysql.query(query, (err, result) => {
+      if (err) throw err;
       console.log("회원가입되었습니다.");
       res.render("pages/auth/join_success");
     });
@@ -97,8 +108,8 @@ module.exports = {
       param,
       format
     );
-    mysql.query(query, (error, result) => {
-      if (error) throw error;
+    mysql.query(query, (err, result) => {
+      if (err) throw err;
       res.json(result);
     });
   },
@@ -115,8 +126,8 @@ module.exports = {
       param,
       format
     );
-    mysql.query(query, (error, result) => {
-      if (error) throw error;
+    mysql.query(query, (err, result) => {
+      if (err) throw err;
       if (result[0] !== undefined) {
         /* 로그인회원정보를 세션에 기입 */
         console.log(req.session);
@@ -223,8 +234,8 @@ module.exports = {
       format
     );
 
-    mysql.query(query, (error, result) => {
-      if (error) throw error;
+    mysql.query(query, (err, result) => {
+      if (err) throw err;
       console.log("result: ==========" + result);
 
       if (result == "") {
@@ -286,7 +297,7 @@ module.exports = {
       param,
       format
     );
-    mysql.query(query, (error, result) => {
+    mysql.query(query, (err, result) => {
       console.log(result);
 
       res.render("pages/board/list", {
@@ -308,7 +319,7 @@ module.exports = {
       param,
       format
     );
-    mysql.query(query, (error, result) => {
+    mysql.query(query, (err, result) => {
       console.log(result);
     });
   },
@@ -323,9 +334,32 @@ module.exports = {
       param,
       format
     );
-    mysql.query(query, (error, result) => {
-      if (error) throw error;
+    mysql.query(query, (err, result) => {
+      if (err) throw err;
       console.log(result);
     });
+
+    //방금 게시한 board의 seq를 구한다(max활용)
+
+    var seq = selectBoardSeqByMax();
+    //만약 category가 community가 아니라면 아까 찾은 seq행의 isExpired를 1로 만드는 쿼리를 예약한다.
+
+    const jobId = schedule.scheduleJob(
+      new Date(Date.now() + 15 * 60 * 1000),
+      () => {
+        var param = { seq: seq };
+        var query = mybatisMapper.getStatement(
+          "sqlMapper",
+          "updateIsExpired",
+          param,
+          format
+        );
+
+        mysql.query(query, (err, result) => {
+          if (err) throw err;
+          console.log(result);
+        });
+      }
+    );
   },
 };

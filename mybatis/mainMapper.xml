@@ -46,8 +46,15 @@ select * from board join member on board.writerSeq=member.seq where category lik
 select tier_#{category}, id_#{category} from member where seq=#{seq}
 </select>
 
+<select id="selectBoardSeqByMax">
+select max(seq) as seq from board
+</select>
+
 <insert id="insertBoard">
 insert into board(title,content,writerSeq,category,game,howLong) values(#{title},#{content},#{writerSeq},#{category},#{game},#{howLong})
 </insert>
 
+<update id= "updateIsExpired">
+update board set isExpired=1 where seq=#{seq}
+</update>
 </mapper>

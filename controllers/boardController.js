@@ -28,6 +28,9 @@ router.get("/:category/:game/insert", function (req, res, next) {
 router.post("/:category/:game/insert", function (req, res, next) {
   //여기에 insert 서비스 입력
 
+  if (!req.session.user_seq) {
+    res.redirect("/auth/login");
+  }
   var param = {
     writerSeq: req.session.user_seq,
     howLong: req.body.howLong,

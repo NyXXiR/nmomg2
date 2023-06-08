@@ -27,12 +27,19 @@ router.get("/:category/:game/insert", function (req, res, next) {
 
 router.post("/:category/:game/insert", function (req, res, next) {
   //여기에 insert 서비스 입력
-  console.log(req.body.howLong);
 
-  // res.render("pages/board/insert", {
-  //   category: req.params.category,
-  //   game: req.params.game,
-  // });
+  var param = {
+    writerSeq: req.session.user_seq,
+    howLong: req.body.howLong,
+    title: req.body.title,
+    content: req.body.content,
+    game: req.params.game,
+    category: req.params.category,
+  };
+
+  mainService.insertBoard(param);
+
+  res.redirect(`/board/${req.params.category}/${req.params.game}`);
 });
 
 //게시글 입력 프로세스

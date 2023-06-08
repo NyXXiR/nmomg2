@@ -18,12 +18,21 @@ router.get("/main/:game", function (req, res, next) {
 });
 
 /* 게시글 작성 라우터*/
-router.get("/insert/:category", function (req, res, next) {
-  res.render("pages/board/insert", { category: req.params.category });
+router.get("/:category/:game/insert", function (req, res, next) {
+  res.render("pages/board/insert", {
+    category: req.params.category,
+    game: req.params.game,
+  });
 });
 
-router.post("/insert", function (req, res, next) {
-  res.render("pages/board/insert");
+router.post("/:category/:game/insert", function (req, res, next) {
+  //여기에 insert 서비스 입력
+  console.log(req.body.howLong);
+
+  // res.render("pages/board/insert", {
+  //   category: req.params.category,
+  //   game: req.params.game,
+  // });
 });
 
 //게시글 입력 프로세스

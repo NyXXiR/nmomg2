@@ -312,4 +312,7 @@ module.exports = {
       console.log(result);
     });
   },
+
+  //category, game으로 구분되는 게시판에 board insert하는 메소드
+  //일단 입력받은 내용을 insert, 그리고 15분 뒤에 isExpired를 0>1로 변경한다.
 };

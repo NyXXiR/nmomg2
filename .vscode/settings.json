@@ -27,6 +27,10 @@
     {
       "filePath": "views\\includes\\header.pug",
       "group": "Default"
+    },
+    {
+      "filePath": "views\\pages\\board\\insert.pug",
+      "group": "Default"
     }
   ]
 }

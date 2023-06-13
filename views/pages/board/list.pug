@@ -7,7 +7,7 @@ block content
 
     a(href=`/board/${category}/${game}/insert`) 글쓰기
     .container-board
-        each eachResult in result
+        each eachResult in result.reverse()
             a.container-board-each
                 p='닉네임: '+eachResult.nickname
                 p='제목: '+eachResult.title

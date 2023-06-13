@@ -28,13 +28,6 @@ router.get("/sidebar", function (req, res, next) {
   res.render("index_with_sidebar", { title: "너만오면고" });
 });
 
-router.get("/index_:game", function (req, res, next) {
-  res.render("index_" + req.params.game, {
-    title: "너만오면고",
-    game: req.params.game,
-  });
-});
-
 router.get("/test/:seq", function (req, res, next) {
   mainService.getAllUser(req, res, next);
 });

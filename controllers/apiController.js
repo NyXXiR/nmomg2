@@ -1,4 +1,5 @@
 var express = require("express");
+const fetch = require("node-fetch");
 var router = express.Router();
 var mainService = require("../services/diablo4Service");
 const cors = require("cors");

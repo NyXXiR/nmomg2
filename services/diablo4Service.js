@@ -36,6 +36,35 @@ module.exports = {
 
     const params = new URLSearchParams(config).toString();
     const finalUrl = `${baseUrl}?${params}`;
+    console.log(finalUrl);
+    async function getLeaderboardData(finalUrl) {
+      try {
+        const response = await fetch(finalUrl);
+        if (!response.ok) {
+          throw new Error("API 요청에 실패했습니다.");
+        }
+
+        const data = await response.json();
+        // 데이터 처리
+        // ...
+
+        return data;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    }
+
+    getLeaderboardData(finalUrl)
+      .then((data) => {
+        res.send(data);
+        // 데이터 사용
+        // ...
+      })
+      .catch((error) => {
+        // 오류 처리
+        // ...
+      });
 
     /*access token이 유출될 수 있으므로 주석 처리해둠 */
     // console.log(finalUrl);

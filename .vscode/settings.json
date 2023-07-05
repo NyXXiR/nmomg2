@@ -31,6 +31,10 @@
     {
       "filePath": "views\\pages\\board\\insert.pug",
       "group": "Default"
+    },
+    {
+      "filePath": "services\\diablo4Service.js",
+      "group": "Default"
     }
   ]
 }

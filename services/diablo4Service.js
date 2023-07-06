@@ -22,52 +22,90 @@ data/
 */
 
 //region, season, leaderboard 입력하면 오는 등수를 반환받아서 n명의 배틀태그(account), heroId를 조회하는 함수
+var express = require("express");
+var router = express.Router();
+const key = require("../config/secrets/key");
+const axios = require("axios");
+
+//일단 key를 써서 토큰을 구하는 함수 만들고
+//토큰을 세트해주는 setToken 만들어서 쓰자
 
 module.exports = {
-  getLeaderboardId: function (nation, season, leaderboard, howMany) {
+  getBlizzardAPIToken: async function () {
+    try {
+      const clientId = key.BLIZZARD_CLIENT_ID; // 클라이언트 ID를 실제 값으로 대체해야 합니다.
+      console.log(clientId);
+      const clientSecret = key.BLIZZARD_SECRET; // 클라이언트 시크릿을 실제 값으로 대체해야 합니다.
+
+      const tokenUrl = "https://us.battle.net/oauth/token";
+
+      const response = await axios.post(tokenUrl, null, {
+        params: {
+          grant_type: "client_credentials",
+          client_id: clientId,
+          client_secret: clientSecret,
+        },
+      });
+
+      if (response.status !== 200) {
+        throw new Error("API 토큰 요청에 실패했습니다.");
+      }
+      const { access_token } = response.data;
+      console.log("액세스 토큰이 들어왔음: " + access_token);
+      return access_token;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  },
+
+  getLeaderboardId: async function (nation, season, leaderboard, howMany) {
     var nation = nation;
     var season = season;
     var leaderboard = leaderboard;
+    var access_token = await this.getBlizzardAPIToken();
     const baseUrl = `https://kr.api.blizzard.com/data/d3/season/${season}/leaderboard/${leaderboard}`;
 
     var config = {
-      access_token: "KRCUJKWU7ZWn4DgEFEb3dVBUWLGOXa7wab",
+      access_token: access_token,
     };
 
     const params = new URLSearchParams(config).toString();
     const finalUrl = `${baseUrl}?${params}`;
     console.log(finalUrl);
-    async function getLeaderboardData(finalUrl) {
-      try {
-        const response = await fetch(finalUrl);
-        if (!response.ok) {
-          throw new Error("API 요청에 실패했습니다.");
-        }
 
-        const data = await response.json();
-        // 데이터 처리
-        // ...
-
-        return data;
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
+    const response = await fetch(finalUrl);
+    if (!response.ok) {
+      throw new Error("API 요청에 실패했습니다.");
     }
+    const data = await response.json();
+    console.log(data);
+    return data;
 
-    getLeaderboardData(finalUrl)
-      .then((data) => {
-        res.send(data);
-        // 데이터 사용
-        // ...
-      })
-      .catch((error) => {
-        // 오류 처리
-        // ...
-      });
+    // async function getLeaderboardData(finalUrl) {
+    //   try {
+    //     const response = await fetch(finalUrl);
+    //     if (!response.ok) {
+    //       throw new Error("API 요청에 실패했습니다.");
+    //     }
+    //     return response.json();
+    //   } catch (error) {
+    //     console.error(error);
+    //     throw error;
+    //   }
+    // }
 
-    /*access token이 유출될 수 있으므로 주석 처리해둠 */
-    // console.log(finalUrl);
-    //이제 저 url로 get 요청을 async로 보내고 받은 다음에 데이터를 가공한다.
+    // await getLeaderboardData(finalUrl)
+    //   .then((data) => {
+    //     console.log("에이싱크 작동하는지 확인.");
+    //     console.log(data);
+    //     return data;
+    //     // 데이터 사용
+    //     // ...
+    //   })
+    //   .catch((error) => {
+    //     // 오류 처리
+    //     // ...
+    //   });
   },
 };

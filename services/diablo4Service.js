@@ -25,7 +25,7 @@ data/
 var express = require("express");
 var router = express.Router();
 const key = require("../config/secrets/key");
-const axios = require("axios");
+var axios = require("axios");
 
 //일단 key를 써서 토큰을 구하는 함수 만들고
 //토큰을 세트해주는 setToken 만들어서 쓰자

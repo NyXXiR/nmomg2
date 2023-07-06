@@ -26,6 +26,7 @@ var express = require("express");
 var router = express.Router();
 const key = require("../config/secrets/key");
 var axios = require("axios");
+const fetch = require("node-fetch");
 
 //일단 key를 써서 토큰을 구하는 함수 만들고
 //토큰을 세트해주는 setToken 만들어서 쓰자
@@ -39,18 +40,29 @@ module.exports = {
 
       const tokenUrl = "https://us.battle.net/oauth/token";
 
-      const response = await axios.post(tokenUrl, null, {
-        params: {
+      const response = await fetch(tokenUrl, {
+        method: "POST",
+        body: new URLSearchParams({
           grant_type: "client_credentials",
           client_id: clientId,
           client_secret: clientSecret,
-        },
+        }),
       });
+
+      /* axios 자체 오류가 발생해서 fetch로 대체 */
+      // const response = await axios.post(tokenUrl, null, {
+      //   params: {
+      //     grant_type: "client_credentials",
+      //     client_id: clientId,
+      //     client_secret: clientSecret,
+      //   },
+      // });
 
       if (response.status !== 200) {
         throw new Error("API 토큰 요청에 실패했습니다.");
       }
-      const { access_token } = response.data;
+      const responseData = await response.json(); // 응답 데이터를 JSON으로 파싱합니다.
+      const { access_token } = responseData; // access_token을 추출합니다.
       console.log("액세스 토큰이 들어왔음: " + access_token);
       return access_token;
     } catch (error) {

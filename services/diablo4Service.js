@@ -25,7 +25,6 @@ data/
 var express = require("express");
 var router = express.Router();
 const key = require("../config/secrets/key");
-var axios = require("axios");
 const fetch = require("node-fetch");
 
 //일단 key를 써서 토큰을 구하는 함수 만들고

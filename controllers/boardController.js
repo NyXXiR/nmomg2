@@ -47,7 +47,7 @@ router.post("/:category/:game/insert", async function (req, res, next) {
     await boardService.willExpired();
   }
 
-  // res.redirect(`/board/${req.params.category}/${req.params.game}`);
+  res.redirect(`/board/${req.params.category}/${req.params.game}`);
 });
 
 //게시글 입력 프로세스

@@ -94,7 +94,7 @@ module.exports = {
     //만약 category가 community가 아니라면 아까 찾은 seq행의 isExpired를 1로 만드는 쿼리를 예약한다.
     const reservation = schedule.scheduleJob(
       new Date(Date.now() + 15 * 60 * 1000),
-      () => {
+      async () => {
         var param = { boardSeq: boardSeq };
         var query = mybatisMapper.getStatement(
           "sqlMapper",

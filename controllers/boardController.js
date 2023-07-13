@@ -25,7 +25,7 @@ router.get("/:category/:game/insert", function (req, res, next) {
   });
 });
 
-router.post("/:category/:game/insert", function (req, res, next) {
+router.post("/:category/:game/insert", async function (req, res, next) {
   //여기에 insert 서비스 입력
 
   if (!req.session.user_seq) {
@@ -40,9 +40,14 @@ router.post("/:category/:game/insert", function (req, res, next) {
     category: req.params.category,
   };
 
-  boardService.insertBoard(param);
+  await boardService.insertBoard(param);
 
-  res.redirect(`/board/${req.params.category}/${req.params.game}`);
+  if (param.category != "community") {
+    console.log("if문 진입");
+    await boardService.willExpired();
+  }
+
+  // res.redirect(`/board/${req.params.category}/${req.params.game}`);
 });
 
 //게시글 입력 프로세스
@@ -64,17 +69,17 @@ router.post("/insert/:category", function (req, res, next) {
   // });
 });
 
-
 router.get("/:category/:game", function (req, res, next) {
   boardService.selectBoardByCategoryAndGame(req, res, next);
 });
 
-/* 디아블로 board 관련 라우터 */
-router.get("/:className", function (req, res, next) {
-  console.log(req.params.className);
-  res.render("pages/board/detail_class", {
-    className: req.params.className,
-  });
+router.get("/detail", function (req, res, next) {
+  const boardSeq = req.query.boardSeq;
+
+  //selectBoardByBoardSeq을 만들어서 result를 불러옴
+  //viewCountPlusByBoardSeq를 만들어서 viewCount를 1 올림
+  //result를 전달
 });
+/* 디아블로 board 관련 라우터 */
 
 module.exports = router;

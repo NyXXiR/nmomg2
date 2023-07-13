@@ -18,14 +18,17 @@ var mysql = require("../config/mysql/db");
 //   return str;
 // }
 
-function selectBoardSeqByMax() {
-  var query = mybatisMapper.getStatement(
-    "sqlMapper",
-    "selectBoardSeqByMax",
-    format
-  );
-  mysql.query(query, (err, result) => {
-    if (err) throw err;
+async function selectBoardSeqByMax() {
+  return new Promise((resolve, reject) => {
+    var query = mybatisMapper.getStatement(
+      "sqlMapper",
+      "selectBoardSeqByMax",
+      format
+    );
+    mysql.query(query, (err, result) => {
+      if (err) reject(err);
+      resolve(result[0].boardSeq);
+    });
   });
 }
 
@@ -82,27 +85,29 @@ module.exports = {
       if (err) throw err;
       console.log(result);
     });
-
+  },
+  willExpired: async function () {
     //방금 게시한 board의 seq를 구한다(max활용)
 
-    var seq = selectBoardSeqByMax();
-    //만약 category가 community가 아니라면 아까 찾은 seq행의 isExpired를 1로 만드는 쿼리를 예약한다.
+    var boardSeq = await selectBoardSeqByMax();
 
-    const jobId = schedule.scheduleJob(
+    //만약 category가 community가 아니라면 아까 찾은 seq행의 isExpired를 1로 만드는 쿼리를 예약한다.
+    const reservation = schedule.scheduleJob(
       new Date(Date.now() + 15 * 60 * 1000),
       () => {
-        var param = { seq: seq };
+        var param = { boardSeq: boardSeq };
         var query = mybatisMapper.getStatement(
           "sqlMapper",
           "updateIsExpired",
           param,
           format
         );
-
         mysql.query(query, (err, result) => {
           if (err) throw err;
           console.log(result);
         });
+
+        console.log("willExpired 끝");
       }
     );
   },

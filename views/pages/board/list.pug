@@ -8,13 +8,18 @@ block content
     a(href=`/board/${category}/${game}/insert`) 글쓰기
     .container-board
         each eachResult in result.reverse()
-            a.container-board-each
-                p='닉네임: '+eachResult.nickname
-                p='제목: '+eachResult.title
-                p='카테고리: '+eachResult.category
-                p='게임: '+eachResult.game
-                p='내용: '+eachResult.content
-                br
+            a.container-board-each(href=`/board/detail?boardSeq=${eachResult.boardSeq}`)
+                span='글번호: '+eachResult.boardSeq
+                span='닉네임: '+eachResult.nickname
+                span='제목: '+eachResult.title
+                span='카테고리: '+eachResult.category
+                span='글쓴이롤티어: '+eachResult.tier_lol
+                span='글쓴이발로란트티어: '+eachResult.tier_valorant
+                span='게임: '+eachResult.game
+                span='내용: '+eachResult.content
+
+            br
+
         else
             =`there are no results`
 

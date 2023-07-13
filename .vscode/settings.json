@@ -13,10 +13,6 @@
       "group": "Default"
     },
     {
-      "filePath": "views\\pages\\board",
-      "group": "Default"
-    },
-    {
       "filePath": "controllers\\boardController.js",
       "group": "Default"
     },
@@ -33,8 +29,13 @@
       "group": "Default"
     },
     {
-      "filePath": "services\\diablo4Service.js",
+      "filePath": "views\\pages\\stat\\statMain.pug",
+      "group": "Default"
+    },
+    {
+      "filePath": "services",
       "group": "Default"
     }
-  ]
+  ],
+  "workbench.editor.enablePreview": false
 }

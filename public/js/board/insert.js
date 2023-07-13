@@ -5,5 +5,5 @@ console.log(category.value);
 if (category.value == "community") {
   howLong.style.display = "none";
   howLong.value = "커뮤니티";
-  console.log(howLong.value);
+  console.log("카테고리를 커뮤니티로 설정: " + howLong.value);
 }

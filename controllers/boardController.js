@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var mainService = require("../services/mainService");
+var boardService = require("../services/boardService");
 const cors = require("cors");
 
 //미들웨어 목록
@@ -40,7 +40,7 @@ router.post("/:category/:game/insert", function (req, res, next) {
     category: req.params.category,
   };
 
-  mainService.insertBoard(param);
+  boardService.insertBoard(param);
 
   res.redirect(`/board/${req.params.category}/${req.params.game}`);
 });
@@ -57,17 +57,16 @@ router.post("/insert/:category", function (req, res, next) {
   //변수 설정(로그인이 되어 있으므로 세션에서 사용자 정보를 가져와도 됨)
   var seq = req.session.user_seq;
   var category = req.params.category;
-  mainService.selectIdandTierBySeqAndCategory(seq, category);
+  boardService.selectIdandTierBySeqAndCategory(seq, category);
 
   // res.render("pages/board/insert", {
   //   category: category,
   // });
 });
 
-//selectBoardByCategoryAndGame으로 매퍼새로짜야함
 
 router.get("/:category/:game", function (req, res, next) {
-  mainService.selectBoardByCategoryAndGame(req, res, next);
+  boardService.selectBoardByCategoryAndGame(req, res, next);
 });
 
 /* 디아블로 board 관련 라우터 */

@@ -22,8 +22,6 @@ data/
 */
 
 //region, season, leaderboard 입력하면 오는 등수를 반환받아서 n명의 배틀태그(account), heroId를 조회하는 함수
-var express = require("express");
-var router = express.Router();
 const key = require("../config/secrets/key");
 const fetch = require("node-fetch");
 

@@ -2,4 +2,13 @@ extends ../../layouts/defaultLayout
 
 
 block content
-    p 전적검색 메인페이지
+    p #{game} 전적검색 메인페이지
+
+    //롤은 id만 검색하면됨, 발로란트랑 디아블로4는 # 붙여서 검색해야함.
+
+
+
+    .notice (한국 서버 계정만 검색 가능, 배틀태그 포함 입력)
+    form.form__search__lol(style="display:flex;justify-content: center;" action=`/stat/search/${game}` method="post")
+        input(type="text" name="playerName" placeholder="아이디")
+        input(type="submit" value="검색")

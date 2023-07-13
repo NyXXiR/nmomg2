@@ -42,6 +42,10 @@ select count(*) as cnt from member where id= #{id}
 select * from board join member on board.writerSeq=member.seq where category like concat(#{category},'%') and game like #{game}
 </select>
 
+<select id="selectBoardByCategoryAndGameAndPosition">
+select * from board join member on board.writerSeq=member.seq where category like concat(#{category},'%') and game like #{game} and position like #{position}
+</select>
+
 <select id="selectIdAndTierBySeqAndCategory">
 select tier_#{category}, id_#{category} from member where seq=#{seq}
 </select>

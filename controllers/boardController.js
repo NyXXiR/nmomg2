@@ -79,6 +79,8 @@ router.get("/detail", function (req, res, next) {
   //selectBoardByBoardSeq을 만들어서 result를 불러옴
   //viewCountPlusByBoardSeq를 만들어서 viewCount를 1 올림
   //result를 전달
+
+  res.render("pages/board/detail_board", {});
 });
 /* 디아블로 board 관련 라우터 */
 

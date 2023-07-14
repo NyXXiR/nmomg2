@@ -4,16 +4,17 @@ html
 
 
 body
-	include ../includes/header
 
-	.container-fluid
+
+	.container
+		include ../includes/header
 		.row
 			.col-9
 				block content
 			.col-3
 				include ../includes/sidebar
 
-	include ../includes/foot
+		include ../includes/foot
 
 	include ../includes/scripts
 

@@ -11,7 +11,9 @@ router.use(cors());
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "너만오면고" });
+  /*첫 페이지를 발로란트 구인 화면으로 대체 */
+  res.redirect("/board/main/diablo4");
+  // res.render("index", { title: "너만오면고" });
 });
 
 router.get("/riot.txt", function (req, res, next) {

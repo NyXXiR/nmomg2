@@ -7,7 +7,11 @@ const cors = require("cors");
 router.use(cors());
 
 router.get("/", function (req, res, next) {
-  res.render("pages/board/boardMain");
+  req.params.game = "valorant";
+  req.params.category = "recruit";
+  boardService.selectBoardByCategoryAndGame(req, res, next);
+
+  // res.render("pages/board/boardMain");
 });
 
 router.get("/main/:game", function (req, res, next) {

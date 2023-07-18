@@ -57,7 +57,7 @@ module.exports = {
 
   selectIdAndTierBySeqAndCategory: (seq, category) => {
     var param = {
-      seq: seq,
+      boardSeq: seq,
       category: category,
     };
     var query = mybatisMapper.getStatement(
@@ -84,6 +84,45 @@ module.exports = {
     mysql.query(query, (err, result) => {
       if (err) throw err;
       console.log(result);
+    });
+  },
+
+  viewCountPlusByBoardSeq: (boardSeq) => {
+    return new Promise((resolve, reject) => {
+      var param = { boardSeq: boardSeq };
+      var query = mybatisMapper.getStatement(
+        "sqlMapper",
+        "viewCountPlusByBoardSeq",
+        param,
+        format
+      );
+      mysql.query(query, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
+    });
+  },
+
+  selectBoardByBoardSeq: (boardSeq) => {
+    return new Promise((resolve, reject) => {
+      var param = { boardSeq: boardSeq };
+      var query = mybatisMapper.getStatement(
+        "sqlMapper",
+        "selectBoardByBoardSeq",
+        param,
+        format
+      );
+      mysql.query(query, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          console.log(result);
+          resolve(result);
+        }
+      });
     });
   },
   willExpired: async function () {

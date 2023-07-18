@@ -35,6 +35,10 @@
     {
       "filePath": "services",
       "group": "Default"
+    },
+    {
+      "filePath": "services\\boardService.js",
+      "group": "Default"
     }
   ],
   "workbench.editor.enablePreview": false

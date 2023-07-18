@@ -1,7 +1,7 @@
-.sidebar
-  p.sidebar-content #{game} 전적검색 기능
-    form.form__search__lol(style="display:flex;justify-content: center;" action=`/stat/search/${game}` method="post")
-        input(type="text" name="playerName" placeholder="아이디")
-        input(type="submit" value="검색")
-  p.sidebar-content 인기게시판
-  p.sidebar-content 여분 사이드바
+
+p.sidebar-content #{game} 전적검색 기능
+  form.form__search__lol(style="display:flex;justify-content: center;" action=`/stat/search/${game}` method="post")
+      input(type="text" name="playerName" placeholder="아이디")
+      input(type="submit" value="검색")
+p.sidebar-content 인기게시판
+p.sidebar-content 여분 사이드바

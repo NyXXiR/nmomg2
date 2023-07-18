@@ -73,18 +73,27 @@ router.post("/insert/:category", function (req, res, next) {
   // });
 });
 
+//게시글 리스트 불러오기
 router.get("/:category/:game", function (req, res, next) {
   boardService.selectBoardByCategoryAndGame(req, res, next);
 });
 
-router.get("/detail", function (req, res, next) {
+router.get("/:category/:game/detail", async function (req, res, next) {
   const boardSeq = req.query.boardSeq;
 
+  await boardService.viewCountPlusByBoardSeq(boardSeq);
   //selectBoardByBoardSeq을 만들어서 result를 불러옴
+  let result = await boardService.selectBoardByBoardSeq(boardSeq);
+  console.log(result);
+  result = result[0];
   //viewCountPlusByBoardSeq를 만들어서 viewCount를 1 올림
   //result를 전달
 
-  res.render("pages/board/detail_board", {});
+  res.render("pages/board/detail_board", {
+    game: req.params.game,
+    category: req.params.category,
+    result: result,
+  });
 });
 /* 디아블로 board 관련 라우터 */
 

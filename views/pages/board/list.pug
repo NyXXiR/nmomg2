@@ -7,18 +7,31 @@ block content
 
     a(href=`/board/${category}/${game}/insert`) 글쓰기
     .container-board
-        each eachResult in result.reverse()
-            a.container-board-each(href=`/board/detail?boardSeq=${eachResult.boardSeq}`)
-                span='글번호: '+eachResult.boardSeq
-                span='닉네임: '+eachResult.nickname
-                span='제목: '+eachResult.title
-                span='카테고리: '+eachResult.category
-                span='글쓴이롤티어: '+eachResult.tier_lol
-                span='글쓴이발로란트티어: '+eachResult.tier_valorant
-                span='게임: '+eachResult.game
-                span='내용: '+eachResult.content
+        if category == 'community'
+            each eachResult in result.reverse()
+                a.container-board-each(href=`/board/${category}/${game}/detail?boardSeq=${eachResult.boardSeq}`)
+                    span='글번호: '+eachResult.boardSeq
+                    span='닉네임: '+eachResult.nickname
+                    span='제목: '+eachResult.title
+                    span='카테고리: '+eachResult.category
+                    span='글쓴이롤티어: '+eachResult.tier_lol
+                    span='글쓴이발로란트티어: '+eachResult.tier_valorant
+                    span='게임: '+eachResult.game
+                    span='내용: '+eachResult.content
+                    br
 
-            br
+
+        else if category == 'recruit'
+            each eachResult in result.reverse()
+                a.container-board-each(href=`/board/${category}/${game}/detail?boardSeq=${eachResult.boardSeq}`)
+                    p='글번호: '+eachResult.boardSeq
+                    p='닉네임: '+eachResult.nickname
+                    p='얼마나: '+eachResult.howLong
+                    p='글쓴이롤티어: '+eachResult.tier_lol
+                    p='글쓴이발로란트티어: '+eachResult.tier_valorant
+                    p='내용: '+eachResult.content
+
+
 
         else
             =`there are no results`

@@ -8,12 +8,23 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.content {
+.container-md {
   text-align: center;
+  background: white;
 }
 
 a {
   color: #00b7ff;
+}
+
+.container {
+  min-width: 992px;
+}
+
+.container-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 /*bootstrap-md 크기에 맞춰 사라지는 사이드바*/

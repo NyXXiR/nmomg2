@@ -27,7 +27,7 @@ router.get("/riot.txt", function (req, res, next) {
 });
 
 router.get("/sidebar", function (req, res, next) {
-  res.render("index_with_sidebar", { title: "너만오면고" });
+  res.render("index_with_sidebar", { title: "너만오면고", game: "lol" });
 });
 
 router.get("/test/:seq", function (req, res, next) {

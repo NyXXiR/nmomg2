@@ -24,6 +24,7 @@ div.header(style='display:flex; justify-content: space-between;')
 		a 알림(괄호안에는 숫자 들어가야함)
 		a(href="/auth/logout") 로그아웃
 .title-sub
+		p(id="game" value=`${game}` style='display: none') #{game}
 		h1= title
 		p Welcome to #{title} #{game}
 

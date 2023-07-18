@@ -1,4 +1,4 @@
-console.log("check");
+console.log("overAll check");
 
 /*
 
@@ -32,3 +32,26 @@ if (isLogined_value == "true") {
   $(".login-check-false").css("display", "inline");
   $(".login-check-true").css("display", "none");
 }
+
+const setBodyColor = () => {
+  const game = document.getElementById("game").getAttribute("value");
+  const body = document.body;
+
+  switch (game) {
+    case "lol":
+      body.style.background = "#f6edde";
+      break;
+    case "valorant":
+      body.style.background = "#FFEBCD";
+      break;
+    case "diablo4":
+      body.style.background = "#D3D3D3";
+
+      break;
+    default:
+      body.style.background = "#f6edde";
+  }
+};
+
+// setBackgroundColor 함수 호출
+setBodyColor();

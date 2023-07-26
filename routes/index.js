@@ -16,6 +16,14 @@ router.get("/", function (req, res, next) {
   // res.render("index", { title: "너만오면고" });
 });
 
+router.get("/privacy-policy", function (req, res, next) {
+  res.render("index_privacy_policy");
+});
+
+router.get("/terms-of-service", function (req, res, next) {
+  res.render("index_terms_of_service");
+});
+
 router.get("/riot.txt", function (req, res, next) {
   fs.readFile("riot.txt", "utf8", (err, data) => {
     if (err) {

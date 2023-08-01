@@ -53,10 +53,11 @@ router.get("/logout", function (req, res, next) {
 
 router.get("/myPage", async function (req, res, next) {
   const memberSeq = req.session.user_seq;
+
   const selectedMember = await mainService.selectMemberByMemberSeq(memberSeq);
   console.log(selectedMember);
 
-  res.render("pages/member/myPageMain");
+  res.render("pages/member/myPageMain", { result: selectedMember });
 });
 
 router.get("/change_password", function (req, res, next) {

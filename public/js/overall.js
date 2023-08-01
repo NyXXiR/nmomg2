@@ -42,11 +42,13 @@ const setBodyColor = () => {
       // body.style.background = "#f6edde";
       body.style.background = "url('/../img/lol_background.jpg') no-repeat";
       body.style.backgroundSize = "cover";
+      body.style.backgroundAttachment = "fixed";
       break;
     case "valorant":
       // body.style.background = "#FFEBCD";
       body.style.background =
         "url('/../img/valorant_background.png') no-repeat";
+      body.style.backgroundAttachment = "fixed";
 
       break;
     case "diablo4":
@@ -54,6 +56,7 @@ const setBodyColor = () => {
       body.style.background =
         "url('/../img/diablo4_background.jpg') no-repeat center center";
       body.style.backgroundSize = "cover";
+      body.style.backgroundAttachment = "fixed";
 
       break;
     default:

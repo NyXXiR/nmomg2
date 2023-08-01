@@ -26,8 +26,10 @@ div.header(style='display:flex; justify-content: space-between;')
 		a(href="/auth/logout") 로그아웃
 .title-sub
 		p(id="game" value=`${game}` style='display: none') #{game}
-		h1= title
-		p Welcome to #{title} #{game}
+		div(style="display:flex; justify-content: center;")
+			a(href="/")
+				img(src="/img/logo_2.png")
+		h1 Welcome to #{title} #{game}
 
 .row
 		.col-3

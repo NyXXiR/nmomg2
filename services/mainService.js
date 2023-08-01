@@ -94,7 +94,7 @@ module.exports = {
     });
   },
 
-  selectMemberByMemberSeq: function (memberSeq, res) {
+  selectMemberByMemberSeq: async function (memberSeq) {
     var param = {
       memberSeq: memberSeq,
     };
@@ -105,12 +105,21 @@ module.exports = {
       format
     );
 
-    //여기 막혔으니 여기서부터 하셈
-
-    mysql.query(query, (err, result) => {
-      if (err) throw err;
-      res.json(result);
-    });
+    try {
+      const selectedMember = await new Promise((resolve, reject) => {
+        mysql.query(query, (err, result) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(result);
+          }
+        });
+      });
+      //배열에 감싸져 있다면 첫 번째 값만 가져와도 성립
+      return selectedMember[0];
+    } catch (err) {
+      throw err;
+    }
   },
 
   //가입시 id 중복여부 체크

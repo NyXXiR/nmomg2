@@ -3,11 +3,16 @@ extends ../../layouts/defaultLayout
 
 block content
     p 마이페이지
-
+    div 개인정보
+        p="아이디: "+result.id
+        p="닉네임: "+result.nickname
+        p="롤 아이디: "+result.id_lol
+        p="롤 티어: "+result.tier_lol
+        p="발로란트 아이디: "+result.id_valorant
+        p="발로란트 티어: "+result.tier_valorant
     div 기능목록
         a(href="/auth/change_password") 비밀번호변경-미구현
         a(href="/auth/change_nickname") 닉네임변경-미구현
         a(href="/auth/quit_member") 회원탈퇴-미구현
 
-    div 기능
-    a(href="/board/insert") 글쓰기
+

@@ -1,6 +1,6 @@
-* {
+/* * {
   border: 1px solid black;
-}
+} */
 
 body {
   padding: 0;
@@ -22,9 +22,9 @@ a {
 }
 
 .container-md {
-  background-color: rgba(255, 255, 255, 0.7); /*까만색(0,0,0) 20% 불투명도*/
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid gray;
 }
-
 .container-board-recruit {
   display: flex;
   flex-wrap: wrap;

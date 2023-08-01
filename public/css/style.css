@@ -33,8 +33,30 @@ a {
 
 /*bootstrap-md 크기에 맞춰 사라지는 사이드바*/
 /*그런데 부트스트랩 때문에 없애도 의미가 별로 없음*/
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .sidebar {
     display: none;
+  }
+} */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* 2개의 열을 3:1 비율로 설정합니다. */
+  grid-gap: 10px;
+}
+
+/*content, sidebar 부분*/
+/* .grid-container-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+} */
+
+/* 미디어 쿼리를 사용하여 작은 화면 크기에서 그리드 레이아웃 조정 */
+@media screen and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  .grid-container-item:nth-child(2) {
+    display: none; /* 두 번째 item을 화면에서 숨깁니다. */
   }
 }

@@ -3,63 +3,7 @@ extends ./layouts/defaultLayout
 block content
     h1 발로란트 메인
 
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
-    p 페이지 길이 체크
+    p.sidebar-content #{game} 전적검색 기능
+        form.form__search__lol(style="display:flex;justify-content: center;" action=`/stat/search/${game}` method="post")
+        input(type="text" name="playerName" placeholder="아이디")
+        input(type="submit" value="검색")

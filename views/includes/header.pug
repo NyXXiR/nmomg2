@@ -32,12 +32,7 @@ div.header(style='display:flex; justify-content: space-between;')
 			a 온라인 게임 구인 플랫폼 - 너만오면고
 		h1 Welcome to #{title} #{game}
 
-.row
-		.col-3
-			a(href=`/board/recruit/${game}`) 팀원구하기
-		.col-3
-			a(href=`/board/community/${game}`) 커뮤니티
-		.col-3
-			a(href=`/stat/search/${game}`) 전적검색
-		.col-3
-			a(href="/sidebar") 사이드바 체크용(필요시 추가기능2 - additional2로 활용)
+.navigation-bar
+	a(href=`/board/recruit/${game}`) 팀원구하기
+	a(href=`/board/community/${game}`) 커뮤니티
+	a(href=`/stat/search/${game}`) 전적검색

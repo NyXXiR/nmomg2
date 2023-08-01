@@ -39,11 +39,36 @@ a {
   grid-template-columns: 3fr 1fr; /* 2개의 열을 3:1 비율로 설정합니다. */
   grid-gap: 10px;
   text-align: center;
-  background: white;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .default-container {
   text-align: center;
 }
+
+/* navbar 제어 시작 - navbar가 부트스트랩과 겹쳐 이름을 nav로 수정*/
+.navigation-bar {
+  display: flex;
+  background-color: #f0f0f0;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.navigation-bar a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.navigation-bar a:hover {
+  background-color: #333;
+  color: #fff;
+}
+/* navbar 제어 끝*/
 
 /*content, sidebar 부분*/
 /* .grid-container-item {
@@ -58,5 +83,8 @@ a {
   }
   .grid-container-item:nth-child(2) {
     display: none; /* 두 번째 item을 화면에서 숨깁니다. */
+  }
+  .navigation-bar {
+    flex-direction: column;
   }
 }

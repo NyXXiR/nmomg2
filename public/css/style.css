@@ -21,6 +21,10 @@ a {
   min-width: 992px;
 }
 
+.container-md {
+  background-color: rgba(255, 255, 255, 0.7); /*까만색(0,0,0) 20% 불투명도*/
+}
+
 .container-board-recruit {
   display: flex;
   flex-wrap: wrap;
@@ -28,6 +32,7 @@ a {
 }
 
 /*bootstrap-md 크기에 맞춰 사라지는 사이드바*/
+/*그런데 부트스트랩 때문에 없애도 의미가 별로 없음*/
 @media (max-width: 992px) {
   .sidebar {
     display: none;

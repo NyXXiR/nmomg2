@@ -39,13 +39,21 @@ const setBodyColor = () => {
 
   switch (game) {
     case "lol":
-      body.style.background = "#f6edde";
+      // body.style.background = "#f6edde";
+      body.style.background = "url('/../img/lol_background.jpg') no-repeat";
+      body.style.backgroundSize = "cover";
       break;
     case "valorant":
-      body.style.background = "#FFEBCD";
+      // body.style.background = "#FFEBCD";
+      body.style.background =
+        "url('/../img/valorant_background.png') no-repeat";
+
       break;
     case "diablo4":
       body.style.background = "#D3D3D3";
+      body.style.background =
+        "url('/../img/diablo4_background.jpg') no-repeat center center";
+      body.style.backgroundSize = "cover";
 
       break;
     default:

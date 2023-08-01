@@ -12,7 +12,7 @@ router.use(cors());
 /* GET home page. */
 router.get("/", function (req, res, next) {
   /*첫 페이지를 발로란트 구인 화면으로 대체 */
-  res.redirect("/board/main/diablo4");
+  res.redirect("/board/main/valorant");
   // res.render("index", { title: "너만오면고" });
 });
 

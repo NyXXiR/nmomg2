@@ -40,7 +40,7 @@ select * from member where memberSeq=#{memberSeq}
 
 
 <select id="selectBoardByBoardSeq">
-select * from board join member on board.writerSeq=member.seq where boardSeq=#{boardSeq}
+select * from board join member on board.writerSeq=member.memberSeq where boardSeq=#{boardSeq}
 </select>
 
 <update id="viewCountPlusByBoardSeq">
@@ -59,7 +59,7 @@ select * from board join member on board.writerSeq=member.memberSeq where catego
 </select>
 
 <select id="selectBoardByCategoryAndGameAndPosition">
-select * from board join member on board.writerSeq=member.seq where category like concat(#{category},'%') and game like #{game} and position like #{position}
+select * from board join member on board.writerSeq=member.memberSeq where category like concat(#{category},'%') and game like #{game} and position like #{position}
 </select>
 
 <select id="selectIdAndTierBySeqAndCategory">

@@ -48,6 +48,7 @@ const setBodyColor = () => {
       // body.style.background = "#FFEBCD";
       body.style.background =
         "url('/../img/valorant_background.png') no-repeat";
+      body.style.backgroundSize = "cover";
       body.style.backgroundAttachment = "fixed";
 
       break;

@@ -1,7 +1,8 @@
 extends ./layouts/defaultLayout
 
 block content
-    h1 발로란트 메인
+    a(href="/")
+        img(src="/img/icon-valorant.webp")
 
     p.sidebar-content #{game} 전적검색 기능
         form.form__search__lol(style="display:flex;justify-content: center;" action=`/stat/search/${game}` method="post")

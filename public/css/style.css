@@ -8,11 +8,6 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.content {
-  text-align: center;
-  background: white;
-}
-
 a {
   color: #00b7ff;
 }
@@ -43,6 +38,11 @@ a {
   display: grid;
   grid-template-columns: 3fr 1fr; /* 2개의 열을 3:1 비율로 설정합니다. */
   grid-gap: 10px;
+  text-align: center;
+  background: white;
+}
+.default-container {
+  text-align: center;
 }
 
 /*content, sidebar 부분*/

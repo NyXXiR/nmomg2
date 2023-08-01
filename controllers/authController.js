@@ -51,7 +51,11 @@ router.get("/logout", function (req, res, next) {
 
 //마이페이지 관련 라우터 - 개인정보변경, 탈퇴 등
 
-router.get("/myPage", function (req, res, next) {
+router.get("/myPage", async function (req, res, next) {
+  const memberSeq = req.session.user_seq;
+  const selectedMember = await mainService.selectMemberByMemberSeq(memberSeq);
+  console.log(selectedMember);
+
   res.render("pages/member/myPageMain");
 });
 

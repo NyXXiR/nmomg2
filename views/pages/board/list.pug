@@ -1,41 +1,44 @@
 extends ../../layouts/sidebarLayout
 
+mixin communityBlock(eachResult)
+  a.container-board-each(href=`/board/community/${game}/detail?boardSeq=${eachResult.boardSeq}`)
+    span='글번호: '+eachResult.boardSeq
+    span='닉네임: '+eachResult.nickname
+    span='제목: '+eachResult.title
+    span='내용: '+eachResult.content
+    br
+
+mixin recruitBlock(eachResult)
+  a.container-board-each(href=`/board/recruit/${game}/detail?boardSeq=${eachResult.boardSeq}`)
+    p='글번호: '+eachResult.boardSeq
+    p='닉네임: '+eachResult.nickname
+    p='얼마나: '+eachResult.howLong
+    p='글쓴이롤티어: '+eachResult.tier_lol
+    p='글쓴이발로란트티어: '+eachResult.tier_valorant
+    p='내용: '+eachResult.content
+    p(style="display: none")='작성시간: '+eachResult.writeTime
+    p(class="time-difference")
 
 block content
     p 카테고리를 파라미터로 받아서 게시글 리스트를 리턴, 페이지네이션 해야함
-    p #{category} 게시판
+    p #{game} #{category} 게시판
 
     a(href=`/board/${category}/${game}/insert`) 글쓰기
-    .container-board
+
         if category == 'community'
-            each eachResult in result.reverse()
-                a.container-board-each(href=`/board/${category}/${game}/detail?boardSeq=${eachResult.boardSeq}`)
-                    span='글번호: '+eachResult.boardSeq
-                    span='닉네임: '+eachResult.nickname
-                    span='제목: '+eachResult.title
-                    span='카테고리: '+eachResult.category
-                    span='글쓴이롤티어: '+eachResult.tier_lol
-                    span='글쓴이발로란트티어: '+eachResult.tier_valorant
-                    span='게임: '+eachResult.game
-                    span='내용: '+eachResult.content
-                    br
+            .container-board-community
+                each eachResult in result.reverse()
+                    +communityBlock(eachResult)
 
 
         else if category == 'recruit'
-            each eachResult in result.reverse()
-                a.container-board-each(href=`/board/${category}/${game}/detail?boardSeq=${eachResult.boardSeq}`)
-                    p='글번호: '+eachResult.boardSeq
-                    p='닉네임: '+eachResult.nickname
-                    p='얼마나: '+eachResult.howLong
-                    p='글쓴이롤티어: '+eachResult.tier_lol
-                    p='글쓴이발로란트티어: '+eachResult.tier_valorant
-                    p='내용: '+eachResult.content
-
-
-
+            .container-board-recruit
+                each eachResult in result.reverse()
+                    +recruitBlock(eachResult)
         else
             =`there are no results`
 
 block script
     script(src='/js/board/list.js')
+    script(src='/js/board/timeDifferenceCalculator.js')
 

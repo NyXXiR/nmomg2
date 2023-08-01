@@ -21,7 +21,7 @@ a {
   min-width: 992px;
 }
 
-.container-board {
+.container-board-recruit {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

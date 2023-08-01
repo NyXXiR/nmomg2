@@ -32,8 +32,12 @@ select count(*) as cnt from member where id= #{id}
  select seq, id, nickname from member where id=#{id}
 </select>
 
+<select id="selectMemberByMemberSeq">
+select * from member where memberSeq=#{memberSeq}
+</select>
 
 <!--Board 관련 SQL문-->
+
 
 <select id="selectBoardByBoardSeq">
 select * from board join member on board.writerSeq=member.seq where boardSeq=#{boardSeq}

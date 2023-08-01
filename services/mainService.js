@@ -32,7 +32,7 @@ module.exports = {
   //쿼리 조회 후 결과 전송하는 메소드
   getAllUser: function (req, res, next) {
     var param = {
-      seq: req.params.seq,
+      seq: req.params.memberSeq,
     };
     var query = mybatisMapper.getStatement(
       "sqlMapper",
@@ -94,6 +94,25 @@ module.exports = {
     });
   },
 
+  selectMemberByMemberSeq: function (memberSeq, res) {
+    var param = {
+      memberSeq: memberSeq,
+    };
+    var query = mybatisMapper.getStatement(
+      "sqlMapper",
+      "selectMemberByMemberSeq",
+      param,
+      format
+    );
+
+    //여기 막혔으니 여기서부터 하셈
+
+    mysql.query(query, (err, result) => {
+      if (err) throw err;
+      res.json(result);
+    });
+  },
+
   //가입시 id 중복여부 체크
   memberIdCheck: function (req, res, next) {
     var param = {
@@ -129,7 +148,7 @@ module.exports = {
         /* 로그인회원정보를 세션에 기입 */
         console.log(req.session);
 
-        req.session.user_seq = result[0].seq;
+        req.session.user_seq = result[0].memberSeq;
         req.session.user_id = result[0].id;
         req.session.nickname = result[0].nickname;
         res.cookie("isLogined", true);
@@ -239,7 +258,7 @@ module.exports = {
         console.log("값이 비어있습니다. 회원가입 진행");
         this.kakaoInsertMember(req, res, next);
       } else {
-        req.session.user_seq = result[0].seq;
+        req.session.user_seq = result[0].memberSeq;
         req.session.user_id = result[0].id;
         req.session.nickname = result[0].nickname;
         res.cookie("isLogined", true);

@@ -73,6 +73,7 @@ a {
 .container-board-each {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
+  border: 1px solid gray;
 }
 
 /*content, sidebar 부분*/

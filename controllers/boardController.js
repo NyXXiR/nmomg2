@@ -42,8 +42,15 @@ router.get("/:category/:game/insert", function (req, res, next) {
 router.post("/:category/:game/insert", async function (req, res, next) {
   //여기에 insert 서비스 입력
 
-  if (!req.session.user_seq) {
-    res.redirect("/auth/login");
+  console.log(req.body.isLogined);
+  if (Boolean(req.body.isLogined)) {
+    return res.redirect("/auth/login");
+  }
+  let voice;
+  if (req.body.voice == "on") {
+    voice = 1;
+  } else {
+    voice = 0;
   }
   var param = {
     writerSeq: req.session.user_seq,
@@ -52,12 +59,13 @@ router.post("/:category/:game/insert", async function (req, res, next) {
     content: req.body.content,
     game: req.params.game,
     category: req.params.category,
+    voice: voice,
   };
 
   await boardService.insertBoard(param);
 
   if (param.category != "community") {
-    console.log("if문 진입");
+    console.log("expired if문 진입");
     await boardService.willExpired();
   }
 

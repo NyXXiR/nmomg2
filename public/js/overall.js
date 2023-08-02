@@ -23,7 +23,7 @@ var isLogined_value = getCookieValue("isLogined");
 var nickname_value = decodeURIComponent(getCookieValue("nickname"));
 
 $(".nickname").text(nickname_value + "님");
-
+$(".isLogined").val(isLogined_value);
 //로그인여부를 체크해 헤더 내용 결정
 if (isLogined_value == "true") {
   $(".login-check-false").css("display", "none");

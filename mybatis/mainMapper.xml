@@ -76,7 +76,7 @@ select max(boardSeq) as boardSeq from board
 </select>
 
 <insert id="insertBoard">
-insert into board(title,content,writerSeq,category,game,howLong) values(#{title},#{content},#{writerSeq},#{category},#{game},#{howLong})
+insert into board(title,content,writerSeq,category,game,howLong,voice) values(#{title},#{content},#{writerSeq},#{category},#{game},#{howLong},#{voice})
 </insert>
 
 

@@ -10,7 +10,7 @@ mixin communityBlock(eachResult)
 
 mixin recruitBlock(eachResult)
   a.container-board-each(href=`/board/recruit/${game}/detail?boardSeq=${eachResult.boardSeq}`)
-    p='글번호: '+eachResult.boardSeq
+    p='제목: '+eachResult.title
     p='닉네임: '+eachResult.nickname
     p='얼마나: '+eachResult.howLong
     p='글쓴이롤티어: '+eachResult.tier_lol

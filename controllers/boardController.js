@@ -33,6 +33,11 @@ router.get("/main/:game", async function (req, res, next) {
 
 /* 게시글 작성 라우터*/
 router.get("/:category/:game/insert", function (req, res, next) {
+  const isLogined = JSON.parse(req.cookies.isLogined || "false"); // 문자열 'false'를 boolean 값 false로 변환
+  if (!isLogined) {
+    console.log("!!");
+    return res.redirect("/auth/login");
+  }
   res.render("pages/board/insert", {
     category: req.params.category,
     game: req.params.game,

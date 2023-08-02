@@ -14,7 +14,6 @@ var authRouter = require("./controllers/authController");
 var boardRouter = require("./controllers/boardController");
 var starRouter = require("./controllers/starController");
 var statRouter = require("./controllers/statController");
-var cookieParser = require("cookie-parser");
 /* configuring mysql-session */
 var options = {
   host: "3.34.245.120",
@@ -59,7 +58,6 @@ app.use(cookieParser());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 //현재 app.js 파일의 경로 + /public을 리턴한다.
 app.use(express.static(path.join(__dirname, "public")));
 

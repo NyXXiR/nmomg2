@@ -39,6 +39,10 @@
     {
       "filePath": "services\\boardService.js",
       "group": "Default"
+    },
+    {
+      "filePath": "views\\pages\\board\\list.pug",
+      "group": "Default"
     }
   ],
   "workbench.editor.enablePreview": false

@@ -13,7 +13,10 @@ mixin recruitBlock(eachResult)
     .box-header
         .box-header-title
             span=eachResult.title
-            span=eachResult.voice
+            if eachResult.voice === 1
+                img(src="/img/mic_on.png" style="height:20px")
+            else
+                img(src="/img/mic_off.png" style="height:20px")
 
         .box-header-information
             img(src="/img/logo_riot.png" style="height:30px")
@@ -24,9 +27,6 @@ mixin recruitBlock(eachResult)
         p=eachResult.content
     .box-footer
         p='얼마나: '+eachResult.howLong
-
-
-
     //.time-difference에 값을 표시하기 위한 데이터 조회
     p(style="display: none")='작성시간: '+eachResult.writeTime
 

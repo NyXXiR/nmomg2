@@ -32,7 +32,11 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
+.container-board-recruit > * {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
 /*bootstrap-md 크기에 맞춰 사라지는 사이드바*/
 /*그런데 부트스트랩 때문에 없애도 의미가 별로 없음*/
 /* @media (max-width: 992px) {
@@ -40,7 +44,15 @@ a {
     display: none;
   }
 } */
+.box-header-information {
+  display: flex;
+  justify-content: space-between;
+}
 
+.box-content {
+  text-align: left;
+  padding: 20px;
+}
 .grid-container {
   display: grid;
   grid-template-columns: 3fr 1fr; /* 2개의 열을 3:1 비율로 설정합니다. */

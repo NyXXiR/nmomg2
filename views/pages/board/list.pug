@@ -10,20 +10,33 @@ mixin communityBlock(eachResult)
 
 mixin recruitBlock(eachResult)
   a.container-board-each(href=`/board/recruit/${game}/detail?boardSeq=${eachResult.boardSeq}`)
-    p='제목: '+eachResult.title
-    p='닉네임: '+eachResult.nickname
-    p='얼마나: '+eachResult.howLong
-    p='글쓴이롤티어: '+eachResult.tier_lol
-    p='글쓴이발로란트티어: '+eachResult.tier_valorant
-    p='내용: '+eachResult.content
+    .box-header
+        .box-header-title
+            span=eachResult.title
+            span=eachResult.voice
+
+        .box-header-information
+            img(src="/img/logo_riot.png" style="height:30px")
+            span=eachResult.nickname
+            span(style="display: none")='작성시간: '+eachResult.writeTime
+            span.time-difference
+    .box-content
+        p=eachResult.content
+    .box-footer
+        p='얼마나: '+eachResult.howLong
+
+
+
+    //.time-difference에 값을 표시하기 위한 데이터 조회
     p(style="display: none")='작성시간: '+eachResult.writeTime
-    p(class="time-difference")
+
+
 
 block content
     p 카테고리를 파라미터로 받아서 게시글 리스트를 리턴, 페이지네이션 해야함
     p #{game} #{category} 게시판
-
-    a(href=`/board/${category}/${game}/insert`) 글쓰기
+        div
+            a(href=`/board/${category}/${game}/insert`) 글쓰기
 
         if category == 'community'
             .container-board-community

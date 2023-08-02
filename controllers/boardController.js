@@ -43,7 +43,7 @@ router.post("/:category/:game/insert", async function (req, res, next) {
   //여기에 insert 서비스 입력
 
   console.log(req.body.isLogined);
-  if (Boolean(req.body.isLogined)) {
+  if (!Boolean(req.body.isLogined)) {
     return res.redirect("/auth/login");
   }
   let voice;

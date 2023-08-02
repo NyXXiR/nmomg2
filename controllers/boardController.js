@@ -14,10 +14,20 @@ router.get("/", function (req, res, next) {
   // res.render("pages/board/boardMain");
 });
 
-router.get("/main/:game", function (req, res, next) {
+router.get("/main/:game", async function (req, res, next) {
+  let game = req.params.game;
+  //가져올 row의 갯수를 설정
+  let limit = 10;
+  const result = await boardService.selectNotExpiredBoardByGameAndLimit(
+    game,
+    limit
+  );
+
+  console.log("result는" + result[0]);
   res.render("index_" + req.params.game, {
     title: "너만오면고",
     game: req.params.game,
+    result: result,
   });
 });
 

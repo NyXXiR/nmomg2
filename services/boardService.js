@@ -55,6 +55,27 @@ module.exports = {
     });
   },
 
+  //게임별 메인페이지의 featured recruit component에 들어갈 데이터 설정
+  selectNotExpiredBoardByGameAndLimit: (game, limit) => {
+    return new Promise((resolve, reject) => {
+      var param = { game: game, limit: limit };
+      var query = mybatisMapper.getStatement(
+        "sqlMapper",
+        "selectNotExpiredBoardByGameAndLimit",
+        param,
+        format
+      );
+      mysql.query(query, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          console.log(result);
+          resolve(result);
+        }
+      });
+    });
+  },
+
   selectIdAndTierBySeqAndCategory: (seq, category) => {
     var param = {
       boardSeq: seq,
@@ -67,6 +88,7 @@ module.exports = {
       format
     );
     mysql.query(query, (err, result) => {
+      if (err) throw err;
       console.log(result);
     });
   },

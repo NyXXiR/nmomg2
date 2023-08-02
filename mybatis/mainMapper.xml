@@ -58,6 +58,11 @@ update board set viewCount=viewCount+1 where boardSeq=#{boardSeq}
 select * from board join member on board.writerSeq=member.memberSeq where category like concat(#{category},'%') and game like #{game}
 </select>
 
+<select id="selectNotExpiredBoardByGameAndLimit">
+select * from board join member on board.writerSeq=member.memberSeq where category like concat('recruit','%') and game like #{game} and isExpired=0 order by writetime desc limit ${limit};
+</select>
+
+
 <select id="selectBoardByCategoryAndGameAndPosition">
 select * from board join member on board.writerSeq=member.memberSeq where category like concat(#{category},'%') and game like #{game} and position like #{position}
 </select>

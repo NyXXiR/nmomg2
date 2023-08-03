@@ -28,7 +28,7 @@ div.header(style='display:flex; justify-content: space-between;')
 .title-sub(style="display:flex; justify-content: center; flex-direction: column; justify-content: space-between;")
 	p(id="game" value=`${game}` style='display: none') #{game}
 
-	div(style='display: flex; justify-content: space-between; align-items: center;')
+	.title-sub-items
 		div.adsense-header(style=' width:336px; height:280px;')
 			script(async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6704743937725089" crossorigin="anonymous")
 			// ad_header 광고 유닛 추가
@@ -46,7 +46,6 @@ div.header(style='display:flex; justify-content: space-between;')
 			script.
 				(adsbygoogle = window.adsbygoogle || []).push({});
 	h1(style="display:none;") Welcome to #{title} #{game}
-
 
 .navigation-bar
 	a(href=`/board/recruit/${game}`) 팀원구하기

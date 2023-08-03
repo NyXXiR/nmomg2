@@ -97,6 +97,11 @@ a {
   border: 1px solid gray;
 }
 
+.title-sub-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 /*content, sidebar 부분*/
 /* .grid-container-item {
   background-color: #f0f0f0;
@@ -116,5 +121,8 @@ a {
   }
   .adsense-header {
     display: none;
+  }
+  .title-sub-items {
+    justify-content: center;
   }
 }

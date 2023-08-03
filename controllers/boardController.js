@@ -17,7 +17,7 @@ router.get("/", function (req, res, next) {
 router.get("/main/:game", async function (req, res, next) {
   let game = req.params.game;
   //가져올 row의 갯수를 설정
-  let limit = 10;
+  let limit = 8;
   const result = await boardService.selectNotExpiredBoardByGameAndLimit(
     game,
     limit

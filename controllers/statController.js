@@ -23,6 +23,10 @@ router.get("/riot", function (req, res, next) {
 });
 
 router.get("/search/:game", function (req, res, next) {
+  //undefined 체크
+  if (req.params.game == "undefined") {
+    req.params.game = "valorant";
+  }
   res.render("pages/stat/statMain", {
     game: req.params.game,
   });

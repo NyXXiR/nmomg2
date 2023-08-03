@@ -19,7 +19,7 @@ router.post("/login", function (req, res, next) {
 });
 
 router.get("/join", function (req, res, next) {
-  res.render("pages/auth/join");
+  res.render("pages/auth/join", { game: "valorant" });
 });
 router.post("/join", function (req, res, next) {
   mainService.insertMember(req, res, next);

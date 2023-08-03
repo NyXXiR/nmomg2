@@ -34,6 +34,10 @@ async function selectBoardSeqByMax() {
 
 module.exports = {
   selectBoardByCategoryAndGame: function (req, res, next) {
+    //undefined 체크
+    if (req.params.game == "undefined") {
+      req.params.game = "valorant";
+    }
     var param = {
       category: req.params.category,
       game: req.params.game,

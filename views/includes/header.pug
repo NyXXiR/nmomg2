@@ -1,6 +1,6 @@
 div.header(style='display:flex; justify-content: space-between;')
 
-	p.header-game-link
+	p.header-large
 		a(href="/")
 			img(src="/img/logo.png")
 
@@ -10,7 +10,7 @@ div.header(style='display:flex; justify-content: space-between;')
 			img(src="/img/league_of_legend.png" height="50px" width="50px")
 		a(href="/board/main/diablo4") 디아블로4
 			img(src="/img/diablo4.png" height="50px" width="50px")
-	button#menu-button(type="button") 메뉴
+	button.header-small#menu-button(type="button") 메뉴
 		div#menu-container(style="display: none;")
 			a(href="/board/main/valorant") 발로란트
 				img(src="/img/valorant.png" height="50px" width="50px")
@@ -20,20 +20,31 @@ div.header(style='display:flex; justify-content: space-between;')
 				img(src="/img/diablo4.png" height="50px" width="50px")
 
 
+	.header-large
+		form.login-check-false.login-form(action="/auth/login" method="post")
+			input.login-id(type="text" name="id" placeholder="아이디입력")
+			input.login-pw(type="password" name="pw" placeholder="비밀번호입력")
+			button(type="button" onclick="location.href='/auth/join'") 회원가입
+			input.login-submit(type="submit" value="로그인")
+			a(href="/auth/kakao/start")
+				img(src="/img/kakao_login_small.png")
 
-	form.login-check-false.login-form(action="/auth/login" method="post")
+		.login-check-true(style="display:flex;")
+			a.nickname
+			a(href="/auth/myPage") 마이페이지
+			a(href="/auth/logout") 로그아웃
+	.header-small
+		form.login-check-false.login-form(action="/auth/login" method="post")
+			button(type="button" onclick="location.href='/auth/join'") 회원가입
+			button(type="button" onclick="location.href='/auth/login'") 로그인
 
-		input.login-id(type="text" name="id" placeholder="아이디입력")
-		input.login-pw(type="password" name="pw" placeholder="비밀번호입력")
-		button(type="button" onclick="location.href='/auth/join'") 회원가입
-		input.login-submit(type="submit" value="로그인")
-		a(href="/auth/kakao/start")
-			img(src="/img/kakao_login_small.png")
+		.login-check-true(style="display:flex;")
+			a(href="/auth/logout") 로그아웃
 
-	.login-check-true(style="display:flex;")
-		a.nickname
-		a(href="/auth/myPage") 마이페이지
-		a(href="/auth/logout") 로그아웃
+
+
+
+
 .title-sub(style="display:flex; justify-content: center; flex-direction: column; justify-content: space-between;")
 	p(id="game" value=`${game}` style='display: none') #{game}
 

@@ -108,9 +108,6 @@ a {
   padding: 20px;
 } */
 
-#menu-button {
-  display: none;
-}
 #menu-container {
   display: flex;
   flex-direction: column;
@@ -163,6 +160,11 @@ a {
   background-color: #000;
 } */
 
+#menu-button,
+.header-small {
+  display: none;
+}
+
 /* 미디어 쿼리를 사용하여 작은 화면 크기에서 그리드 레이아웃 조정 */
 @media screen and (max-width: 992px) {
   .grid-container {
@@ -175,9 +177,13 @@ a {
     flex-direction: column;
   }
   .adsense-header,
-  .header-game-link {
+  .header-large {
     display: none;
   }
+  .header-small {
+    display: block;
+  }
+
   .title-sub-items {
     justify-content: center;
   }

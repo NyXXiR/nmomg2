@@ -18,7 +18,8 @@ mixin recruitBlock(eachResult)
 
             .box-header-information
                 img(src="/img/logo_riot.png" style="height:30px")
-                span=eachResult.nickname
+                span=eachResult[`tier_${game}`]
+                span=eachResult[`id_${game}`]
                 span(style="display: none")='작성시간: '+eachResult.writeTime
                 span.time-difference
         .box-content

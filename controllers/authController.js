@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var mainService = require("../services/mainService");
+var myMiddleware = require("./myMiddleware");
+
 const cors = require("cors");
 
 //미들웨어 목록
@@ -51,24 +53,40 @@ router.get("/logout", function (req, res, next) {
 
 //마이페이지 관련 라우터 - 개인정보변경, 탈퇴 등
 
-router.get("/myPage", async function (req, res, next) {
-  const memberSeq = req.session.user_seq;
+router.get(
+  "/myPage",
+  myMiddleware.requireLogin,
+  async function (req, res, next) {
+    const memberSeq = req.session.user_seq;
 
-  const selectedMember = await mainService.selectMemberByMemberSeq(memberSeq);
-  console.log(selectedMember);
+    const selectedMember = await mainService.selectMemberByMemberSeq(memberSeq);
+    console.log(selectedMember);
 
-  res.render("pages/member/myPageMain", { result: selectedMember });
-});
+    res.render("pages/member/myPageMain", { result: selectedMember });
+  }
+);
 
-router.get("/change_password", function (req, res, next) {
-  res.render("pages/member/change_password");
-});
-router.get("/change_nickname", function (req, res, next) {
-  res.render("pages/member/change_nickname");
-});
-router.get("/quit_member", function (req, res, next) {
-  res.render("pages/member/quit_member");
-});
+router.get(
+  "/change_password",
+  myMiddleware.requireLogin,
+  function (req, res, next) {
+    res.render("pages/member/change_password");
+  }
+);
+router.get(
+  "/change_nickname",
+  myMiddleware.requireLogin,
+  function (req, res, next) {
+    res.render("pages/member/change_nickname");
+  }
+);
+router.get(
+  "/quit_member",
+  myMiddleware.requireLogin,
+  function (req, res, next) {
+    res.render("pages/member/quit_member");
+  }
+);
 
 //카카오 로그인 핸들러
 router.get("/kakao/start", async function (req, res, next) {

@@ -9,7 +9,7 @@ mixin communityBlock(eachResult)
 mixin recruitBlock(eachResult)
     .container-board-each
         .box-header
-            .box-header-title
+            a.box-header-title(href=`/board/recruit/${game}/detail?boardSeq=${eachResult.boardSeq}`)
                 span=`[${eachResult.howLong}]`+eachResult.title
                 if eachResult.voice === 1
                     img(src="/img/mic_on.png" style="height:20px")

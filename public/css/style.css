@@ -113,4 +113,7 @@ a {
   .navigation-bar {
     flex-direction: column;
   }
+  .adsense-header {
+    display: none;
+  }
 }

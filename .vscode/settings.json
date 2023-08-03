@@ -43,6 +43,10 @@
     {
       "filePath": "views\\pages\\board\\list.pug",
       "group": "Default"
+    },
+    {
+      "filePath": "public\\css\\style.css",
+      "group": "Default"
     }
   ],
   "workbench.editor.enablePreview": false

@@ -115,6 +115,28 @@ a {
   display: flex;
   flex-direction: column;
 }
+.login-check-true {
+  display: flex;
+  /* 요소들 사이의 간격을 조절합니다. */
+  justify-content: space-around;
+}
+
+.login-check-true a {
+  margin-right: 20px; /* 각 링크 사이에 20px의 간격을 지정합니다. */
+  position: relative;
+}
+
+/* 간격을 넣을 세로줄 스타일 -가상요소 연습함*/
+/* .login-check-true a:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #000;
+} */
+
 /* 미디어 쿼리를 사용하여 작은 화면 크기에서 그리드 레이아웃 조정 */
 @media screen and (max-width: 992px) {
   .grid-container {

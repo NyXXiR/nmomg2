@@ -30,10 +30,9 @@ div.header(style='display:flex; justify-content: space-between;')
 		a(href="/auth/kakao/start")
 			img(src="/img/kakao_login_small.png")
 
-	p.login-check-true
+	.login-check-true(style="display:flex;")
 		a.nickname
 		a(href="/auth/myPage") 마이페이지
-		a 알림(괄호안에는 숫자 들어가야함)
 		a(href="/auth/logout") 로그아웃
 .title-sub(style="display:flex; justify-content: center; flex-direction: column; justify-content: space-between;")
 	p(id="game" value=`${game}` style='display: none') #{game}

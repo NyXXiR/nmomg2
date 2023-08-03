@@ -1,6 +1,6 @@
 div.header(style='display:flex; justify-content: space-between;')
 
-	p
+	p.header-game-link
 		a(href="/")
 			img(src="/img/logo.png")
 
@@ -10,6 +10,16 @@ div.header(style='display:flex; justify-content: space-between;')
 			img(src="/img/league_of_legend.png" height="50px" width="50px")
 		a(href="/board/main/diablo4") 디아블로4
 			img(src="/img/diablo4.png" height="50px" width="50px")
+	button#menu-button(type="button") 메뉴
+		div#menu-container(style="display: none;")
+			a(href="/board/main/valorant") 발로란트
+				img(src="/img/valorant.png" height="50px" width="50px")
+			a(href="/board/main/lol") 리그오브레전드
+				img(src="/img/league_of_legend.png" height="50px" width="50px")
+			a(href="/board/main/diablo4") 디아블로4
+				img(src="/img/diablo4.png" height="50px" width="50px")
+
+
 
 	form.login-check-false.login-form(action="/auth/login" method="post")
 		a(href="/auth/session_check") (임시) 세션+쿠키체크

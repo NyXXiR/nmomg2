@@ -33,6 +33,15 @@ if (isLogined_value == "true") {
   $(".login-check-true").css("display", "none");
 }
 
+//헤더 게임메뉴 제어
+const menuButton = document.getElementById("menu-button");
+const menuContainer = document.getElementById("menu-container");
+
+menuButton.addEventListener("click", () => {
+  menuContainer.style.display =
+    menuContainer.style.display === "none" ? "flex" : "none";
+});
+
 const setBodyColor = () => {
   const game = document.getElementById("game").getAttribute("value");
   const body = document.body;

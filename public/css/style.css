@@ -108,6 +108,13 @@ a {
   padding: 20px;
 } */
 
+#menu-button {
+  display: none;
+}
+#menu-container {
+  display: flex;
+  flex-direction: column;
+}
 /* 미디어 쿼리를 사용하여 작은 화면 크기에서 그리드 레이아웃 조정 */
 @media screen and (max-width: 992px) {
   .grid-container {
@@ -119,10 +126,14 @@ a {
   .navigation-bar {
     flex-direction: column;
   }
-  .adsense-header {
+  .adsense-header,
+  .header-game-link {
     display: none;
   }
   .title-sub-items {
     justify-content: center;
+  }
+  #menu-button {
+    display: block;
   }
 }

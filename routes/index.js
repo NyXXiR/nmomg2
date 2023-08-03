@@ -39,6 +39,16 @@ router.get("/riot.txt", function (req, res, next) {
   });
 });
 
+router.get("/ads.txt", function (req, res, next) {
+  fs.readFile("ads.txt", "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    res.send(data);
+  });
+});
+
 router.get("/sidebar", function (req, res, next) {
   res.render("index_with_sidebar", { title: "너만오면고", game: "lol" });
 });

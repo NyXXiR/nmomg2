@@ -48,10 +48,12 @@ a {
   display: flex;
   justify-content: space-between;
 }
-
-.box-content {
-  text-align: left;
-  padding: 20px;
+#player-name {
+  cursor: pointer;
+  color: black;
+}
+#player-name:hover {
+  color: blue;
 }
 .grid-container {
   display: grid;

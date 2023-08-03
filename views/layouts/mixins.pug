@@ -7,7 +7,7 @@ mixin communityBlock(eachResult)
         br
 
 mixin recruitBlock(eachResult)
-    a.container-board-each(href=`/board/recruit/${game}/detail?boardSeq=${eachResult.boardSeq}`)
+    .container-board-each
         .box-header
             .box-header-title
                 span=`[${eachResult.howLong}]`+eachResult.title
@@ -19,10 +19,13 @@ mixin recruitBlock(eachResult)
             .box-header-information
                 img(src="/img/logo_riot.png" style="height:30px")
                 span=eachResult[`tier_${game}`]
-                span=eachResult[`id_${game}`]
+                span#player-name=eachResult[`id_${game}`]
+                input#hidden-game(type="hidden" value=`${game}`)
+                img(id="image-copy" src="/img/icon_copy.svg" style="height:20px" onclick=`copyToClipboard('${eachResult[`id_${game}`]}')`)
                 span(style="display: none")='작성시간: '+eachResult.writeTime
                 span.time-difference
-        .box-content
+        a.box-content(href=`/board/recruit/${game}/detail?boardSeq=${eachResult.boardSeq}`)
             p=eachResult.content
         .box-footer
             p=`만료됨 체크: ${eachResult.isExpired}`
+

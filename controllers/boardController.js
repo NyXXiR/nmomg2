@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var boardService = require("../services/boardService");
 const cors = require("cors");
-
+var myMiddleware = require("./myMiddleware");
 //미들웨어 목록
 router.use(cors());
 
@@ -27,55 +27,55 @@ router.get("/main/:game", async function (req, res, next) {
   res.render("index_" + req.params.game, {
     title: "너만오면고",
     game: req.params.game,
+    category: "recruit",
     result: result,
   });
 });
 
 /* 게시글 작성 라우터*/
-router.get("/:category/:game/insert", function (req, res, next) {
-  const isLogined = JSON.parse(req.cookies.isLogined || "false"); // 문자열 'false'를 boolean 값 false로 변환
-  if (!isLogined) {
-    console.log("!!");
-    return res.redirect("/auth/login");
+router.get(
+  "/:category/:game/insert",
+  myMiddleware.requireLogin,
+  function (req, res, next) {
+    res.render("pages/board/insert", {
+      category: req.params.category,
+      game: req.params.game,
+    });
   }
-  res.render("pages/board/insert", {
-    category: req.params.category,
-    game: req.params.game,
-  });
-});
+);
 
-router.post("/:category/:game/insert", async function (req, res, next) {
-  //여기에 insert 서비스 입력
+router.post(
+  "/:category/:game/insert",
+  myMiddleware.requireLogin,
+  async function (req, res, next) {
+    //여기에 insert 서비스 입력
 
-  console.log(req.body.isLogined);
-  if (!Boolean(req.body.isLogined)) {
-    return res.redirect("/auth/login");
+    let voice;
+    if (req.body.voice == "on") {
+      voice = 1;
+    } else {
+      voice = 0;
+    }
+    var param = {
+      writerSeq: req.session.user_seq,
+      howLong: req.body.howLong,
+      title: req.body.title,
+      content: req.body.content,
+      game: req.params.game,
+      category: req.params.category,
+      voice: voice,
+    };
+
+    await boardService.insertBoard(param);
+
+    if (param.category != "community") {
+      console.log("expired if문 진입");
+      await boardService.willExpired();
+    }
+
+    res.redirect(`/board/${req.params.category}/${req.params.game}`);
   }
-  let voice;
-  if (req.body.voice == "on") {
-    voice = 1;
-  } else {
-    voice = 0;
-  }
-  var param = {
-    writerSeq: req.session.user_seq,
-    howLong: req.body.howLong,
-    title: req.body.title,
-    content: req.body.content,
-    game: req.params.game,
-    category: req.params.category,
-    voice: voice,
-  };
-
-  await boardService.insertBoard(param);
-
-  if (param.category != "community") {
-    console.log("expired if문 진입");
-    await boardService.willExpired();
-  }
-
-  res.redirect(`/board/${req.params.category}/${req.params.game}`);
-});
+);
 
 //게시글 입력 프로세스
 router.post("/insert/:category", function (req, res, next) {

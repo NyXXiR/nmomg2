@@ -68,6 +68,8 @@ const setBodyColor = () => {
 // setBackgroundColor 함수 호출
 setBodyColor();
 
+/* mixins 관련 코드 */
+
 //recruitBlock의 게시 시간 계산해주는 함수
 function getTimeDifferenceString(postTime) {
   const currentTime = new Date();
@@ -97,4 +99,61 @@ postItems.forEach((item) => {
 
   // 시간 차이 문자열을 각 게시글 아래에 추가
   item.innerText = timeDifferenceString;
+});
+
+document.querySelectorAll("#image-copy").forEach(function (element) {
+  element.addEventListener("click", function () {
+    var originalSrc = "/img/icon_copy.svg"; // 원래 이미지 경로
+    var newSrc = "/img/icon_check.png"; // 변경할 이미지 경로
+    var image = element;
+
+    image.src = newSrc;
+
+    setTimeout(function () {
+      image.src = originalSrc;
+    }, 2000);
+  });
+});
+
+//recruitBlock에서 게임 id를 클립보드에 복사시켜주는 함수
+function copyToClipboard(text) {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      console.log("Copied to clipboard: " + text);
+    })
+    .catch((err) => {
+      console.error("Failed to copy text: ", err);
+    });
+}
+
+$(document).ready(function () {
+  $(".box-header-information").on("click", "#player-name", function () {
+    const playerName = $(this).text().trim();
+    const game = $(this).siblings("#hidden-game").val(); // 형제 요소에서 hidden-game 값을 가져옴
+    const blockType = $(this)
+      .closest(".container-board-each")
+      .data("block-type"); // 가장 가까운 container-board-each 요소에서 block-type 값을 가져옴
+
+    // 예시: 해당 블록에 맞는 동작을 수행
+    console.log("플레이어 이름:", playerName);
+    console.log("게임:", game);
+    console.log("블록 종류:", blockType);
+    // 폼을 생성하여 POST 요청을 전송합니다.
+    const form = $("<form>")
+      .attr("method", "post")
+      .attr("action", `/stat/search/${game}`) // "game"을 적절한 값으로 바꿔주세요.
+      .appendTo("body");
+
+    // playerName 값을 숨겨진 필드로 추가합니다.
+    $("<input>")
+      .attr("type", "hidden")
+      .attr("name", "playerName")
+      .val(playerName)
+      .appendTo(form);
+
+    // 폼을 제출하여 POST 요청을 전송합니다.
+    console.log(form);
+    form.submit();
+  });
 });

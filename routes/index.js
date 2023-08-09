@@ -29,6 +29,16 @@ router.get("/terms-of-service", function (req, res, next) {
   res.render("index_terms_of_service");
 });
 
+router.get("/board/main/lol/riot.txt", function (req, res, next) {
+  fs.readFile("riot_lol.txt", "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    res.send(data);
+  });
+});
+
 router.get("/riot.txt", function (req, res, next) {
   fs.readFile("riot.txt", "utf8", (err, data) => {
     if (err) {

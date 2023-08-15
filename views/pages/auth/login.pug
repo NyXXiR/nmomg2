@@ -1,10 +1,13 @@
 extends ../../layouts/defaultLayout
 
 block content
-    p 로그인 폼
+    p 먼저 로그인해주세요.
 
 
     form.login-form(action="/auth/login" method="post")
         input.login-id(type="text" name="id" placeholder="아이디입력")
-        input.login-pw(type="text" name="pw" placeholder="비밀번호입력")
+        input.login-pw(type="password" name="pw" placeholder="비밀번호입력")
         input.login-submit(type="submit")
+        br
+        a(href="/auth/kakao/start")
+            img(src="/img/kakao_login_medium_narrow.png")

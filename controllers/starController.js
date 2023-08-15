@@ -7,3 +7,5 @@ const cors = require("cors");
 router.use(cors());
 
 module.exports = router;
+
+//각 유저의 평판을 조회할 수 있는 기능 모음

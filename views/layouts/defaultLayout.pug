@@ -1,15 +1,18 @@
 doctype html
 html
 	include ../includes/head
-
+	include ../includes/google_analytics
 
 body
-	include ../includes/header
+	.container-md
+		include ../includes/header
+		br
+		.default-container
+			block content
 
-	block content
-
-	include ../includes/foot
+		include ../includes/foot
 
 	include ../includes/scripts
 
+	block script
 

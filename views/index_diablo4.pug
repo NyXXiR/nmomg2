@@ -1,0 +1,54 @@
+extends ./layouts/defaultLayout
+
+block content
+    h1 디아블로 메인
+
+    //리더보드에 필요한 속성값: 캐릭터명,캐릭터레벨, 캐릭터클래스, 캐릭터장비, 캐릭터스킬 +@
+
+
+    .notice (한국 서버 계정만 검색 가능)
+
+    form.form__search__diablo4(style="display:flex;justify-content: center;")
+        input(type="text" name="playerName" placeholder="아이디")
+        p #
+        input(type="text" name="battleTag" placeholder="배틀태그")
+        input(type="submit" value="검색")
+
+
+
+    .table
+        .table__class.row(style="display:flex; justify-content: space-evenly")
+            .table__class__barbarian.col-md-2
+                a(href="/board/barbarian") 야만용사
+                    img(src="/img/icon_barbarian.png" height="50px" width="50px")
+                p 1등
+                p 2등
+                p 3등
+            .table__class__druid.col-md-2
+                a(href="/board/druid") 드루이드
+                    img(src="/img/icon_druid.png" height="50px" width="50px")
+                p 1등
+                p 2등
+                p 3등
+            .table__class__necromancer.col-md-2
+                a(href="/board/necromancer") 강령술사
+                    img(src="/img/icon_necromancer.png" height="50px" width="50px")
+                p 1등
+                p 2등
+                p 3등
+            .table__class__rogue.col-md-2
+                a(href="/board/rogue") 도적
+                    img(src="/img/icon_rogue.png" height="50px" width="50px")
+                p 1등
+                p 2등
+                p 3등
+            .table__class__sorcerer.col-md-2
+                a(href="/board/sorcerer") 원소술사
+                    img(src="/img/icon_sorcerer.png" height="50px" width="50px")
+                p 1등
+                p 2등
+                p 3등
+
+    .button_test
+        a(href="/api/blizzard/getLeaderboardId") 리더보드 테스트
+        a(href="/auth/session_check") (임시) 세션+쿠키체크

@@ -7,17 +7,77 @@
     FROM
       board
     WHERE
-      seq =#{seq}
+      boardSeq =#{boardSeq}
   </select>
-
-
-
-
 
   <!--Auth 관련 SQL문-->
 
 <insert id="insertMember">
 insert into member(id,pw,nickname) values (#{id},#{pw},#{nickname})
 </insert>
+
+<insert id="kakaoInsertMember">
+insert into member(id,nickname,auth_provider) values (#{id},#{nickname},'kakao')
+</insert>
+
+<select id="memberIdCheck">
+select count(*) as cnt from member where id= #{id}
+</select>
+
+<select id="loginCheck">
+ select memberSeq, id, nickname from member where id=#{id} and pw=#{pw}
+</select>
+
+<select id="kakaoLoginCheck">
+ select memberSeq, id, nickname from member where id=#{id}
+</select>
+
+<select id="selectMemberByMemberSeq">
+select * from member where memberSeq=#{memberSeq}
+</select>
+
+<!--Board 관련 SQL문-->
+
+
+<select id="selectBoardByBoardSeq">
+select * from board join member on board.writerSeq=member.memberSeq where boardSeq=#{boardSeq}
+</select>
+
+<update id="viewCountPlusByBoardSeq">
+update board set viewCount=viewCount+1 where boardSeq=#{boardSeq}
+</update>
+
+<update id="updateIsExpired">
+    <![CDATA[
+    UPDATE board SET isExpired = 1 WHERE boardSeq = #{boardSeq}
+    ]]>
+</update>
+
+
+<select id="selectBoardByCategoryAndGame">
+select * from board join member on board.writerSeq=member.memberSeq where category like concat(#{category},'%') and game like #{game}
+</select>
+
+<select id="selectNotExpiredBoardByGameAndLimit">
+select * from board join member on board.writerSeq=member.memberSeq where category like concat('recruit','%') and game like #{game} and isExpired=0 order by writetime desc limit ${limit};
+</select>
+
+
+<select id="selectBoardByCategoryAndGameAndPosition">
+select * from board join member on board.writerSeq=member.memberSeq where category like concat(#{category},'%') and game like #{game} and position like #{position}
+</select>
+
+<select id="selectIdAndTierBySeqAndCategory">
+select tier_#{category}, id_#{category} from member where seq=#{seq}
+</select>
+
+<select id="selectBoardSeqByMax">
+select max(boardSeq) as boardSeq from board
+</select>
+
+<insert id="insertBoard">
+insert into board(title,content,writerSeq,category,game,howLong,voice) values(#{title},#{content},#{writerSeq},#{category},#{game},#{howLong},#{voice})
+</insert>
+
 
 </mapper>

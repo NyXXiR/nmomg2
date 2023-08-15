@@ -1,0 +1,39 @@
+div.header(style='display:flex; justify-content: space-between;')
+
+	p
+		a(href="/") NMOMG
+		a(href="/index_diablo4") 디아블로4
+			img(src="/img/diablo4.png"  height="50px",width="50px")
+		a(href="/index_valorant") 발로란트
+			img(src="/img/valorant.png" height="50px",width="50px")
+		a(href="/index_league_of_legend") 리그오브레전드
+			img(src="/img/league_of_legend.png"  height="50px",width="50px")
+
+	form.login-check-false.login-form(action="/auth/login" method="post")
+			a(href="/auth/session_check") (임시) 세션+쿠키체크
+			a(href="/auth/join") 회원가입
+			input.login-id(type="text" name="id" placeholder="아이디입력")
+			input.login-pw(type="password" name="pw" placeholder="비밀번호입력")
+			input.login-submit(type="submit" value="로그인")
+			a(href="/auth/kakao/start")
+				img(src="/img/kakao_login_small.png")
+	p.login-check-true
+		a.nickname
+		a(href="/auth/myPage") 마이페이지
+		a 알림(괄호안에는 숫자 들어가야함)
+		a(href="/auth/logout") 로그아웃
+
+.title-sub
+		h1= title
+		p Welcome to #{title}
+
+.row
+
+		.col-3
+			a(href="/index_diablo4") 메인페이지
+		.col-3
+			a(href="/board/list/recruit_diablo4") 파티찾기
+		.col-3
+			a(href="/stat") 캐릭터 상세검색
+		.col-3
+			a(href="/sidebar") 사이드바 체크용

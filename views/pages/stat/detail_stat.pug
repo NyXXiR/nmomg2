@@ -1,0 +1,17 @@
+extends ../../layouts/defaultLayout
+
+
+block content
+    p #{game} 전적검색 상세페이지
+
+    //롤은 id만 검색하면됨, 발로란트랑 디아블로4는 # 붙여서 검색해야함.
+
+    div 소환사명: #{playerName}
+    div 최근 포지션: #{recentPosition}
+    div 최근전적: #{recentWin}
+    div 최근승률: #{recentWinRate}
+
+    div 다시검색
+        form.form__search__lol(style="display:flex;justify-content: center;" action=`/stat/search/${game}` method="post")
+            input(type="text" name="playerName" placeholder="아이디")
+            input(type="submit" value="검색")

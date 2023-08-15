@@ -1,0 +1,26 @@
+extends ../../layouts/sidebarLayout
+include ../../layouts/mixins
+
+block content
+    p 카테고리를 파라미터로 받아서 게시글 리스트를 리턴, 페이지네이션 해야함
+    p #{game} #{category} 게시판
+    p (recruit 게시판에 올린 게시물은 15분 뒤에 자동으로 만료됩니다.)
+        div
+            a(href=`/board/${category}/${game}/insert`) 글쓰기
+
+        if category == 'community'
+            .container-board-community
+                each eachResult in result.reverse()
+                    +communityBlock(eachResult)
+
+
+        else if category == 'recruit'
+            .container-board-recruit
+                each eachResult in result.reverse()
+                    +recruitBlock(eachResult)
+        else
+            p=`there are no results`
+
+block script
+    script(src='/js/board/list.js')
+

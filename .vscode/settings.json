@@ -1,0 +1,53 @@
+{
+  "favorites.resources": [
+    {
+      "filePath": "services\\mainService.js",
+      "group": "Default"
+    },
+    {
+      "filePath": "mybatis\\mainMapper.xml",
+      "group": "Default"
+    },
+    {
+      "filePath": "public\\js\\overall.js",
+      "group": "Default"
+    },
+    {
+      "filePath": "controllers\\boardController.js",
+      "group": "Default"
+    },
+    {
+      "filePath": "routes\\index.js",
+      "group": "Default"
+    },
+    {
+      "filePath": "views\\includes\\header.pug",
+      "group": "Default"
+    },
+    {
+      "filePath": "views\\pages\\board\\insert.pug",
+      "group": "Default"
+    },
+    {
+      "filePath": "views\\pages\\stat\\statMain.pug",
+      "group": "Default"
+    },
+    {
+      "filePath": "services",
+      "group": "Default"
+    },
+    {
+      "filePath": "services\\boardService.js",
+      "group": "Default"
+    },
+    {
+      "filePath": "views\\pages\\board\\list.pug",
+      "group": "Default"
+    },
+    {
+      "filePath": "public\\css\\style.css",
+      "group": "Default"
+    }
+  ],
+  "workbench.editor.enablePreview": false
+}

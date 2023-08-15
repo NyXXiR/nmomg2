@@ -1,0 +1,20 @@
+extends ./layouts/defaultLayout
+include ./layouts/mixins
+block content
+    a(href="/board/main/lol")
+        img(src="/img/typography_lol.png" style="height:150px;")
+
+    p.sidebar-content #{game} 전적검색 기능
+        form.form__search__lol(style="display:flex;justify-content: center;" action=`/stat/search/${game}` method="post")
+            input(type="text" name="playerName" placeholder="아이디")
+            input(type="submit" value="검색")
+            a(href="https://auth.riotgames.com/authorize?client_id=6e705d8e-d2da-4e14-943c-b41bc62e6499&redirect_uri=https://nmomg.com/auth/riot&response_type=code&scope=openid+offline_access")
+                img(src="/img/logo_riot.png" height="30px" width="30px")
+
+    .feature-box
+        div 최근 게시된+만료되지 않은 팀원구하기 게시글
+        div
+            a(href=`/board/${category}/${game}/insert`) 글쓰기
+        .container-board-recruit
+            each eachResult in result
+                +recruitBlock(eachResult)

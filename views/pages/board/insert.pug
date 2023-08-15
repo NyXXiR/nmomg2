@@ -1,0 +1,28 @@
+extends ../../layouts/defaultLayout
+
+block content
+    h1 #{category} #{game} 글쓰기
+
+    .hidden(style="display:none;")
+        input#category(value=`${category}`)
+        input#game(value=`${game}`)
+
+    form.board-form(action=`/board/${category}/${game}/insert` method="post")
+
+        select.howLong( name="howLong")
+            option(value="한두판") 한두판
+            option(value="1패쫑") 1패쫑
+            option(value="3판이상") 3판이상
+            option(value="커뮤니티" style="display:none")
+        input.title(type="text" name="title" placeholder="제목입력")
+        .box-voice
+            span 마이크 여부
+            input.voice(type="checkbox" name="voice")
+        br
+
+        input.content(type="text" name="content" placeholder="내용")
+        input.login-submit(type="submit")
+
+block script
+        script(src='/js/board/insert.js')
+

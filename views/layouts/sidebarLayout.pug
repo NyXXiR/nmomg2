@@ -1,20 +1,25 @@
 doctype html
 html
 	include ../includes/head
+	include ../includes/google_analytics
 
 
 body
-	include ../includes/header
 
-	.container-fluid
-		.row
-			.col-9
+
+	.container-md
+		include ../includes/header
+		br
+		.grid-container
+			.grid-container-item
 				block content
-			.col-3
+			.grid-container-item
 				include ../includes/sidebar
 
-	include ../includes/foot
+		include ../includes/foot
 
 	include ../includes/scripts
+
+	block script
 
 

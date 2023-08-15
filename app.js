@@ -30,8 +30,11 @@ mysqlDB.connect();
 
 var app = express();
 
+/*얘 때문에 nginx 무한 리다이렉트 오류났음 ㅅㅂ*/
+/*http로 접속시 https로 redirect */
+/*
 if (process.env.NODE_ENV === "production") {
-  /*http로 접속시 https로 redirect */
+
   app.use(function (req, res, next) {
     const domain = "nmomg.com";
     if (!req.secure) {
@@ -41,6 +44,7 @@ if (process.env.NODE_ENV === "production") {
     }
   });
 }
+*/
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");

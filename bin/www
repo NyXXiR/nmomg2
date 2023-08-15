@@ -12,6 +12,7 @@ var http = require("http");
 var https = require("https");
 var fs = require("fs");
 
+/* 예전 수동 ssl 설치시 사용한 코드
 if (process.env.NODE_ENV === "production") {
   // Certificate 인증서 경로
   const privateKey = fs.readFileSync(
@@ -42,6 +43,7 @@ if (process.env.NODE_ENV === "production") {
   httpsServer.on("error", onError);
   httpsServer.on("listening", onListening);
 }
+*/
 
 /**
  * Get port from environment and store in Express.

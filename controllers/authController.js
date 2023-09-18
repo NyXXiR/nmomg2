@@ -134,7 +134,7 @@ router.get("/riot", function (req, res) {
         // legibly print out our tokens
         res.send("<pre>" + JSON.stringify(tokens, false, 4) + "</pre>");
       } else {
-        res.send("/token request failed" + tokens);
+        res.send("/token request failed" + error + response + body);
       }
     }
   );

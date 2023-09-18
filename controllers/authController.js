@@ -2,8 +2,7 @@ var express = require("express");
 var router = express.Router();
 var mainService = require("../services/mainService");
 var myMiddleware = require("./myMiddleware");
-const request = require("request");
-
+const axios = require("axios");
 const cors = require("cors");
 
 //미들웨어 목록
@@ -100,45 +99,42 @@ var provider = "https://auth.riotgames.com",
   tokenUrl = provider + "/token";
 
 //라이엇 RSO 통합 매핑
-router.get("/riot", function (req, res) {
-  var accessCode = req.query.code;
+router.get("/riot", async function (req, res) {
+  const accessCode = req.query.code;
 
-  // make server-to-server request to token endpoint
-  // exchange authorization code for tokens
-  request.post(
-    {
-      url: tokenUrl,
-      auth: {
-        // sets "Authorization: Basic ..." header
-        username: clientID,
-        password: clientSecret,
-      },
-      form: {
-        // post information as form-data
+  try {
+    const response = await axios.post(
+      tokenUrl,
+      {
         grant_type: "authorization_code",
         code: accessCode,
         redirect_uri: appCallbackUrl,
       },
-    },
-    function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        // parse the response to JSON
-        var payload = JSON.parse(body);
-
-        // separate the tokens from the entire response body
-        var tokens = {
-          refresh_token: payload.refresh_token,
-          id_token: payload.id_token,
-          access_token: payload.access_token,
-        };
-
-        // legibly print out our tokens
-        res.send("<pre>" + JSON.stringify(tokens, false, 4) + "</pre>");
-      } else {
-        res.send("/token request failed" + tokens);
+      {
+        auth: {
+          username: clientID,
+          password: clientSecret,
+        },
       }
+    );
+
+    if (response.status === 200) {
+      const payload = response.data;
+
+      const tokens = {
+        refresh_token: payload.refresh_token,
+        id_token: payload.id_token,
+        access_token: payload.access_token,
+      };
+
+      res.status(200).json(tokens); // 토큰을 JSON 형식으로 반환
+    } else {
+      res.status(response.status).send("Token request failed");
     }
-  );
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 //카카오 로그인 핸들러

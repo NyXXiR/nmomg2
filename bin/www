@@ -12,9 +12,8 @@ var http = require("http");
 var https = require("https");
 var fs = require("fs");
 
+/* 예전 수동 ssl 설치시 사용한 코드
 if (process.env.NODE_ENV === "production") {
-
-
   // Certificate 인증서 경로
   const privateKey = fs.readFileSync(
     "/etc/letsencrypt/live/nmomg.com/privkey.pem",
@@ -44,12 +43,14 @@ if (process.env.NODE_ENV === "production") {
   httpsServer.on("error", onError);
   httpsServer.on("listening", onListening);
 }
+*/
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || "80");
+// var port = normalizePort(process.env.PORT || "4000");
+var port = normalizePort("4000");
 app.set("port", port);
 
 /**
@@ -61,7 +62,6 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 server.listen(port);
-
 server.on("error", onError);
 server.on("listening", onListening);
 

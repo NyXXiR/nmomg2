@@ -84,3 +84,5 @@ const checkPasswordMatch = () => {
 // 입력 필드의 값이 변경될 때마다 checkPasswordMatch 함수 실행
 passwordInput.addEventListener("input", checkPasswordMatch);
 repeatPasswordInput.addEventListener("input", checkPasswordMatch);
+
+//비밀번호 확인이 일치해야만 회원가입이 가능하도록 추가해야 함

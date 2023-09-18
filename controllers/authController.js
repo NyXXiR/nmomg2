@@ -142,7 +142,7 @@ router.get("/riot", function (req, res) {
             ",error:" +
             error +
             ",response:" +
-            response.statusCode +
+            response +
             ",body: " +
             body
         );

@@ -9,17 +9,6 @@ const cors = require("cors");
 //미들웨어 목록
 router.use(cors());
 
-/* 라이엇 RSO 로그인 관련 전역변수 */
-var clientID = "6e705d8e-d2da-4e14-943c-b41bc62e6499",
-  clientSecret = "JmKBkL71SniKEE1Zka08yw==";
-
-var appBaseUrl = "https://nmomg.com",
-  appCallbackUrl = appBaseUrl + "/auth/riot";
-
-var provider = "https://auth.riotgames.com",
-  authorizeUrl = provider + "/authorize",
-  tokenUrl = provider + "/token";
-
 router.get("/login", function (req, res, next) {
   res.render("pages/auth/login");
 });
@@ -99,6 +88,16 @@ router.get(
     res.render("pages/member/quit_member");
   }
 );
+/* 라이엇 RSO 로그인 관련 전역변수 */
+var clientID = "6e705d8e-d2da-4e14-943c-b41bc62e6499",
+  clientSecret = "JmKBkL71SniKEE1Zka08yw==";
+
+var appBaseUrl = "https://nmomg.com",
+  appCallbackUrl = appBaseUrl + "/auth/riot";
+
+var provider = "https://auth.riotgames.com",
+  authorizeUrl = provider + "/authorize",
+  tokenUrl = provider + "/token";
 
 //라이엇 RSO 통합 매핑
 router.get("/riot", function (req, res) {
@@ -111,8 +110,8 @@ router.get("/riot", function (req, res) {
       url: tokenUrl,
       auth: {
         // sets "Authorization: Basic ..." header
-        user: clientID,
-        pass: clientSecret,
+        username: clientID,
+        password: clientSecret,
       },
       form: {
         // post information as form-data

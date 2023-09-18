@@ -102,8 +102,7 @@ var provider = "https://auth.riotgames.com",
 //라이엇 RSO 통합 매핑
 router.get("/riot", function (req, res) {
   var accessCode = req.query.code;
-
-  // make server-to-server request to token endpoint
+  console.log(accessCode); // make server-to-server request to token endpoint
   // exchange authorization code for tokens
   request.post(
     {

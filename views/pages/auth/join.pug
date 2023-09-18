@@ -4,13 +4,14 @@ extends ../../layouts/defaultLayout
 block content
     p 회원가입 페이지
     form.join-form(method="post")
-        input.join-id(type="text" id="idInput" name="id" placeholder="아이디입력")
+        input.join-id(type="text" id="idInput" name="id" placeholder="아이디입력" required)
 
         .join-id-check
         br
-        input.join-pw(type="text" name="pw" placeholder="비밀번호입력")
+        input.join-pw(type="text" name="pw" id="pwInput" placeholder="비밀번호입력" required)
         br
-        input.join-pw(type="text" name="pw-repeat" placeholder="비밀번호확인")
+        input.join-pw(type="text" name="pw-repeat" id="pwRepeatInput" placeholder="비밀번호확인" required)
+        #passwordMatchMessage
         br
         input.join-submit(type="submit" formaction="/auth/join")
 

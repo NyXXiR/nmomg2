@@ -9,6 +9,13 @@ const cors = require("cors");
 //미들웨어 목록
 router.use(cors());
 
+var appBaseUrl = "https://nmomg.com",
+  appCallbackUrl = appBaseUrl + "/auth/riot";
+
+var provider = "https://auth.riotgames.com",
+  authorizeUrl = provider + "/authorize",
+  tokenUrl = provider + "/token";
+
 router.get("/login", function (req, res, next) {
   res.render("pages/auth/login");
 });

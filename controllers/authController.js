@@ -113,6 +113,9 @@ router.get("/riot", function (req, res) {
         username: clientID,
         password: clientSecret,
       },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
       form: {
         // post information as form-data
         grant_type: "authorization_code",

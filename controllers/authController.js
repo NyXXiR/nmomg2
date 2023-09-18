@@ -88,7 +88,7 @@ router.get(
   }
 );
 /* 라이엇 RSO 로그인 관련 전역변수 */
-var clientID = "6e705d8e-d2da-4e14-943c-b41bc62e6499",
+var clientID = "ocLWxZJvRqeZVq9rWScrHA==",
   clientSecret =
     "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiaHR0cHM6Ly9hdXRoLnJpb3RnYW1lcy5jb20iXSwiZXhwIjo0ODUwNjk4MDUzLCJpYXQiOjE2OTUwMjQ0NTMsImlzcyI6IjZlNzA1ZDhlLWQyZGEtNGUxNC05NDNjLWI0MWJjNjJlNjQ5OSIsImp0aSI6InJldDhPREc1U00ydzQ2aGNvOVhTVlE9PSIsInN1YiI6IjZlNzA1ZDhlLWQyZGEtNGUxNC05NDNjLWI0MWJjNjJlNjQ5OSJ9.jqyyYRY5jd7ZU6d3x7Qxi6eOzNjErHb9byvGOKmfUIcGurN1Du9zvFxWDPQEitN_2h_etxc46jKJkk84kt7oiA";
 

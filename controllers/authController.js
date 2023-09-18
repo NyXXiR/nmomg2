@@ -11,7 +11,8 @@ router.use(cors());
 
 /* 라이엇 RSO 로그인 관련 전역변수 */
 var clientID = "6e705d8e-d2da-4e14-943c-b41bc62e6499",
-  clientSecret = "JmKBkL71SniKEE1Zka08yw==";
+  clientSecret =
+    "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiaHR0cHM6Ly9hdXRoLnJpb3RnYW1lcy5jb20iXSwiZXhwIjo0ODQ2MjQzNjY3LCJpYXQiOjE2OTA1NzAwNjcsImlzcyI6IjZlNzA1ZDhlLWQyZGEtNGUxNC05NDNjLWI0MWJjNjJlNjQ5OSIsImp0aSI6Im5GMk53WUJRVG9LMmE4RjJZOFQ3N1E9PSIsInN1YiI6IjZlNzA1ZDhlLWQyZGEtNGUxNC05NDNjLWI0MWJjNjJlNjQ5OSJ9.lpXW5Yvs1LJL7wTMBbcNdRqwiKTDk2EJdbe24CwESNr1-hWrza4h-G8_kIAANOL0kOpK8-KqZmEAAoIqXAWSaA";
 
 var appBaseUrl = "https://nmomg.com",
   appCallbackUrl = appBaseUrl + "/auth/riot";

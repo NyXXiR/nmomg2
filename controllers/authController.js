@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var mainService = require("../services/mainService");
 var myMiddleware = require("./myMiddleware");
+var request = require("request");
 const cors = require("cors");
 
 //미들웨어 목록

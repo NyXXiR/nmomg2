@@ -109,8 +109,8 @@ router.get("/riot", function (req, res) {
       url: tokenUrl,
       auth: {
         // sets "Authorization: Basic ..." header
-        username: clientID,
-        password: clientSecret,
+        client_id: clientID,
+        client_secret: clientSecret,
       },
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

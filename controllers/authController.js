@@ -9,6 +9,10 @@ const cors = require("cors");
 //미들웨어 목록
 router.use(cors());
 
+/* 라이엇 RSO 로그인 관련 전역변수 */
+var clientID = "6e705d8e-d2da-4e14-943c-b41bc62e6499",
+  clientSecret = "JmKBkL71SniKEE1Zka08yw==";
+
 var appBaseUrl = "https://nmomg.com",
   appCallbackUrl = appBaseUrl + "/auth/riot";
 

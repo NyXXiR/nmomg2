@@ -89,7 +89,16 @@ router.get(
 );
 /* 라이엇 RSO 로그인 관련 전역변수 */
 var clientID = "6e705d8e-d2da-4e14-943c-b41bc62e6499",
-  clientSecret = "JmKBkL71SniKEE1Zka08yw==";
+  clientSecret = {
+    use: "sig",
+    kty: "EC",
+    kid: "JmKBkL71SniKEE1Zka08yw==",
+    crv: "P-256",
+    alg: "ES256",
+    x: "b5eekzKL-dMM3_4ojbUmqXCimSPAumiBsMb6t60ynHo",
+    y: "I_Xr3IB8CzGDyvYrhlKprmYHWCwb_lG6LoG6wXlQZxY",
+    d: "9CA6H0QKgPRyj-VFZtdQCxLJQ3KDchpGOsvkqE8Eb6k",
+  };
 
 var appBaseUrl = "https://nmomg.com",
   appCallbackUrl = appBaseUrl + "/auth/riot";

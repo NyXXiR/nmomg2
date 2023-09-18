@@ -102,21 +102,17 @@ var provider = "https://auth.riotgames.com",
 //라이엇 RSO 통합 매핑
 router.get("/riot", function (req, res) {
   var accessCode = req.query.code;
-  console.log(accessCode); // make server-to-server request to token endpoint
+  // make server-to-server request to token endpoint
   // exchange authorization code for tokens
   request.post(
     {
       url: tokenUrl,
-      auth: {
-        // sets "Authorization: Basic ..." header
-        user: clientID,
-        pass: clientSecret,
-      },
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
+
       form: {
         // post information as form-data
+        client_assertion_type:
+          "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        client_assertion: clientSecret,
         grant_type: "authorization_code",
         code: accessCode,
         redirect_uri: appCallbackUrl,
@@ -142,7 +138,7 @@ router.get("/riot", function (req, res) {
             ",error:" +
             error +
             ",response:" +
-            response +
+            response.statusCode +
             ",body: " +
             body
         );

@@ -3,8 +3,15 @@
   src: url(../font/jura.ttf);
 }
 
+/* 타 css 내용을 덮어씌우는 css 코드 목록 */
 .container-md {
   background-color: transparent;
+  border: none;
+}
+
+.navigation-bar a {
+  background-color: transparent;
+  color: #fff;
   border: none;
 }
 
@@ -105,6 +112,27 @@ body {
   color: #6df83a;
 }
 
+/* navbar 스타일 설정 */
+.navigation-bar-container a:nth-child(1) {
+  color: #3a58f8;
+}
+
+.navigation-bar-container a:nth-child(2) {
+  color: #f92672;
+}
+
+.navigation-bar-container a:nth-child(3) {
+  color: #e6db74;
+}
+
+.navigation-bar-container a:nth-child(4) {
+  color: #ff7a95;
+}
+
+.navigation-bar-container a:nth-child(5) {
+  color: #66d9ef;
+}
+
 #about h2 {
   color: #3a58f8;
 }
@@ -166,4 +194,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.section-container {
+  background-color: #fff;
 }

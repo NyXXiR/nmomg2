@@ -96,7 +96,7 @@ var appBaseUrl = "https://nmomg.com",
   appCallbackUrl = appBaseUrl + "/auth/riot";
 
 var provider = "https://auth.riotgames.com",
-  authorizeUrl = provider + "/authorize",
+  authorizeUrl = provider + "/authorize", //하드코딩 링크로 대체되었음
   tokenUrl = provider + "/token";
 
 //라이엇 RSO 통합 매핑

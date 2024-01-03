@@ -16,6 +16,10 @@ router.get("/", function (req, res, next) {
   // res.render("index", { title: "너만오면고" });
 });
 
+router.get("/about", function (req, res, next) {
+  res.render("about");
+});
+
 //오타나서 만든 링크, 검수받기 위해 redirect 적용
 router.get("/privacy-policfy", function (req, res, next) {
   res.redirect("/privacy-policy");

@@ -1,0 +1,169 @@
+@font-face {
+  font-family: "Jura";
+  src: url(../font/jura.ttf);
+}
+
+.container-md {
+  background-color: transparent;
+  border: none;
+}
+
+body {
+  font-family: "Jura", sans-serif; /* 전체 문서에 Jura 폰트를 사용하도록 설정 */
+  background-color: #272823 !important;
+  margin: 0;
+  padding: 0; /* body의 기본 padding 제거 */
+}
+
+#home {
+  height: 100vh; /* 화면 전체 높이를 차지하도록 설정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Korean 섹션에 대한 애니메이션 */
+.entrance-korean {
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.5s; /* 0.5초 딜레이 설정 */
+}
+
+/* English 섹션에 대한 애니메이션 */
+.entrance-english {
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s; /* 1초 딜레이 설정 */
+}
+
+/* fadeIn 애니메이션 키프레임 설정 */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.entrance-korean,
+.entrance-english {
+  width: 100%;
+  padding: 20px;
+  color: #fff; /* 텍스트 색상 설정 */
+  text-align: left; /* 왼쪽 정렬 설정 */
+  opacity: 0; /* 처음에는 투명하게 설정 */
+
+  /* 스크롤 가능한 영역을 부여 */
+  overflow-y: auto;
+  max-height: 80vh; /* 최대 높이 설정 */
+}
+
+.entrance-korean h1 {
+  font-weight: bold; /* 텍스트 두껍게 설정 */
+}
+
+/* 각 섹션에 대한 추가 스타일 설정 */
+.entrance-korean h1.hello span:nth-child(1) {
+  color: #3a58f8;
+}
+
+.entrance-korean h1.hello span:nth-child(2) {
+  color: #f92672;
+}
+
+.entrance-korean h1.hello span:nth-child(3) {
+  color: #e6db74;
+}
+
+.entrance-korean h1.hello span:nth-child(4) {
+  color: #ff7a95;
+}
+
+.entrance-korean h1.hello span:nth-child(5) {
+  color: #66d9ef;
+}
+
+/* 각 섹션에 대한 추가 스타일 설정 */
+.entrance-english h1.hello span:nth-child(1) {
+  color: #3a58f8;
+}
+
+.entrance-english h1.hello span:nth-child(2) {
+  color: #f92672;
+}
+
+.entrance-english h1.hello span:nth-child(3) {
+  color: #e6db74;
+}
+
+.entrance-english h1.hello span:nth-child(4) {
+  color: #ff7a95;
+}
+
+.entrance-english h1.hello span:nth-child(5) {
+  color: #66d9ef;
+}
+
+.hello-name {
+  color: #6df83a;
+}
+
+#about h2 {
+  color: #3a58f8;
+}
+#skills h2 {
+  color: #f92672;
+}
+#projects h2 {
+  color: #e6db74;
+}
+#contact h2 {
+  color: #ff7a95;
+}
+.header-animation {
+  display: flex;
+  opacity: 0;
+  animation: fadeIn 1s forwards, slideDown 1s forwards;
+  animation-delay: 3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box; /* box-sizing을 border-box로 설정하여 width와 height에 padding, border를 포함 */
+  padding: 10px; /* 헤더에 padding 추가 */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  to {
+    top: 0;
+  }
+}
+
+.default-container {
+  display: block;
+}
+
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* navigation-bar에도 100% width 적용 */
+}
+.navigation-bar-container a {
+  margin-left: 50px; /* 각 링크의 왼쪽 마진을 이용하여 간격 생성 */
+  font-size: 30px;
+}
+.navigation-bar-container a:first-child {
+  margin-left: 0; /* 첫 번째 요소에는 마진을 주지 않음 */
+}
+
+.logo-container,
+.navigation-bar-container,
+.contact-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

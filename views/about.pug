@@ -12,6 +12,8 @@ block content
                 a(href='#projects') Projects
                 a(href='#contact') Contact
             .contact-container(style="display:flex;")
+                a(href='https://nmomg.com')
+                    img(src="/img/logo_small.png" alt="Logo" height="50px" )
                 a(href='https://github.com/NyXXiR')
                     img(src="/img/mdi_github.png" alt="Logo" height="50px" )
                 a(href='mailto:lgh0334@gmail.com')
@@ -48,37 +50,86 @@ block content
     section#about
         h2 About
         .section-container
-            p I am a web developer with a strong background in front-end technologies. ...
-
-    section#skills
+            h3 임규훈
+            h4 Web developer
+            img(src="/img/ddabong.gif" alt="profile" height="150px" )
+            p - 풀스택 개발자.
+            p - GIS 기반 솔루션 개발 및 유지보수 담당
+            p - Front-end 및 Back-end 기술 스택을 활용한 지리 정보 시스템을 개발하고 최적화
+            p - 지도 데이터 시각화 및 공간 분석에 관한 다양한 기능 구현
+            p - 고객 요구사항에 따라 사용자 친화적이고 직관적인 UI/UX 설계
+            p - 효율적인 데이터베이스 구조 설계 및 성능 향상을 위한 최적화 작업 수행
+    sepction#skills
         h2 Skills
         .section-container
-            ul
-                li HTML5
-                li CSS3
-                li JavaScript
-                li React
-                li Node.js
-            ul
-                li HTML5
-                li CSS3
-                li JavaScript
-                li React
-                li Node.js
-                li CSS3
-                li JavaScript
-                li React
-                li Node.js
-                li CSS3
-                li JavaScript
-                li React
-                li Node.js
+            ul.frontend
+                h3 frontend
+                li javascript
+                li vue.js
+
+            ul.backend
+                h3 backend
+                li java
+                li spring
+                li thymeleaf
+                li jsp
+                li node.js
+                li express
+                li pug
+
+            ul.deployment-server
+                h3 OS/server/deployment
+                li letsEncrypt
+                li docker
+                li ubuntu
+                li nginx
+
+            ul.version-control
+                h3 version control
+                li git
+                li git desktop
+
+            ul.communication-test
+                h3 communicaion-test tool
+                li figma
+                li postman
+            ul.db-cache
+                h3 DB-cache
+                li mySQL
+                li postgreSQL
+                li DBeaver
+            ul.certificate
+                h3 certificate
+                li 정보처리기사
     section#projects
         h2 Projects
 
         .section-container
-        // 프로젝트 목록을 추가하세요.
-        // 각 프로젝트에 대한 간단한 설명, 이미지, 또는 링크를 포함하세요.
+            .project-container //이 컨테이너는 컴포넌트로 만들어 활용해야 함
+                .project-container-header
+                    h3 2023
+                    h3 프로젝트명
+                    h4 2023.09~2023.12(1명)
+                .project-container-content
+                    .thumbnail
+                        img(src="/img/example.png" alt="Logo" height="200px" )
+                        .thumbnail-button-container
+                            button <
+                            span 1
+                            span  / 8
+                            button >
+                        a(href='https://nmomg.com')
+                        span readme 상세보기
+                        button 노션 버튼
+                    .description 프로젝트 설명을 입력하세요.
+                    .tech-stack 사용한 기술
+                        div github desktop
+                        div vue.js
+                        div node.js
+                        div express
+
+
+
     section#contact
         h2 Contact
         .section-container

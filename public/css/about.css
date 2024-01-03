@@ -14,6 +14,9 @@
   color: #fff;
   border: none;
 }
+h2 {
+  font-size: 50px;
+}
 
 body {
   font-family: "Jura", sans-serif; /* 전체 문서에 Jura 폰트를 사용하도록 설정 */
@@ -198,4 +201,5 @@ body {
 
 .section-container {
   background-color: #fff;
+  border-radius: 15px;
 }

@@ -50,57 +50,61 @@ block content
     section#about
         h2 About
         .section-container
-            h3 임규훈
-            h4 Web developer
-            img(src="/img/ddabong.gif" alt="profile" height="150px" )
-            p - 풀스택 개발자.
-            p - GIS 기반 솔루션 개발 및 유지보수 담당
-            p - Front-end 및 Back-end 기술 스택을 활용한 지리 정보 시스템을 개발하고 최적화
-            p - 지도 데이터 시각화 및 공간 분석에 관한 다양한 기능 구현
-            p - 고객 요구사항에 따라 사용자 친화적이고 직관적인 UI/UX 설계
-            p - 효율적인 데이터베이스 구조 설계 및 성능 향상을 위한 최적화 작업 수행
-    sepction#skills
+            .about-left
+                h3 임규훈
+                h4 Web developer
+                p - 풀스택 개발자.
+                p - GIS 기반 솔루션 개발 및 유지보수 담당
+                p - Front-end 및 Back-end 기술 스택을 활용한 지리 정보 시스템을 개발하고 최적화
+                p - 지도 데이터 시각화 및 공간 분석에 관한 다양한 기능 구현
+                p - 고객 요구사항에 따라 사용자 친화적이고 직관적인 UI/UX 설계
+                p - 효율적인 데이터베이스 구조 설계 및 성능 향상을 위한 최적화 작업 수행
+            .about-right
+                img(src="/img/ddabong.gif" alt="profile" height="150px" )
+    section#skills
         h2 Skills
         .section-container
             ul.frontend
                 h3 frontend
-                li javascript
-                li vue.js
+                li.icon-item(data-icon="javascript") JavaScript
+                li.icon-item(data-icon="vue") vue.js
 
             ul.backend
                 h3 backend
-                li java
-                li spring
-                li thymeleaf
-                li jsp
-                li node.js
-                li express
-                li pug
+                li.icon-item(data-icon="java") java
+                li.icon-item(data-icon="spring") spring
+                li.icon-item(data-icon="thymeleaf") thymeleaf
+                li.icon-item(data-icon="jsp") jsp
+                li.icon-item(data-icon="nodejs") node.js
+                li.icon-item(data-icon="express") express
+                li.icon-item(data-icon="pug") pug
 
             ul.deployment-server
                 h3 OS/server/deployment
-                li letsEncrypt
-                li docker
-                li ubuntu
-                li nginx
+                li.icon-item(data-icon="letsencrypt") letsEncrypt
+                li.icon-item(data-icon="docker") docker
+                li.icon-item(data-icon="ubuntu") ubuntu
+                li.icon-item(data-icon="nginx") nginx
 
             ul.version-control
                 h3 version control
-                li git
-                li git desktop
+                li.icon-item(data-icon="git") git
+                li.icon-item(data-icon="githubdesktop") git desktop
 
             ul.communication-test
                 h3 communicaion-test tool
-                li figma
-                li postman
+                li.icon-item(data-icon="figma") figma
+                li.icon-item(data-icon="postman") postman
+
             ul.db-cache
                 h3 DB-cache
-                li mySQL
-                li postgreSQL
-                li DBeaver
+                li.icon-item(data-icon="mysql") mySQL
+                li.icon-item(data-icon="postgresql") postgreSQL
+                li.icon-item(data-icon="dbeaver") DBeaver
+
             ul.certificate
                 h3 certificate
-                li 정보처리기사
+                li.icon-item(data-icon="certificate") 정보처리기사
     section#projects
         h2 Projects
 
@@ -133,8 +137,8 @@ block content
     section#contact
         h2 Contact
         .section-container
-            p Feel free to reach out to me via email at your.email@example.com.
+            p Feel free to reach out to me via email at lgh0334@gmail.com.
 
-    script(src='scripts.js') // 스크립트 파일 링크를 추가하세요.
+    script(src='/js/about.js') // 스크립트 파일 링크를 추가하세요.
 
 

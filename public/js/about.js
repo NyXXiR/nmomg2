@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // 아이콘을 텍스트 앞에 추가
-      item.insertBefore(imgElement, item.firstChild);
+      item.appendChild(imgElement);
     });
   });
 });

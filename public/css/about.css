@@ -199,6 +199,10 @@ body {
   .header-animation {
     animation: fadeIn 1s forwards; /* 화면 크기가 작을 때는 fadeIn 애니메이션만 적용 */
   }
+
+  #skills > .section-container {
+    flex-direction: column;
+  }
 }
 
 .default-container {
@@ -251,20 +255,26 @@ body {
 
 #skills ul {
   flex-basis: calc(50% - 20px); /* 2줄로 배치하기 위한 계산값 */
+  padding: 50px;
   margin: 10px;
-  text-align: left; /* 내용은 왼쪽 정렬 */
+  text-align: right; /* 내용은 오른쪽 정렬 */
 }
 
 #skills h3 {
-  margin-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: left;
+  border-bottom: 1px solid gray;
 }
 
 #skills li {
   list-style-type: none;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  margin-right: 20px;
 }
 
 #skills .icon {
   height: 40px; /* 아이콘의 높이 */
-  margin-right: 5px; /* 아이콘과 텍스트 사이의 간격 */
+  margin-right: 15px; /* 아이콘과 텍스트 사이의 간격 */
+  margin-left: 15px;
 }

@@ -138,40 +138,66 @@ body {
 }
 
 #about h2 {
-  color: #3a58f8;
-}
-#skills h2 {
   color: #f92672;
 }
-#projects h2 {
+#skills h2 {
   color: #e6db74;
 }
-#contact h2 {
+#projects h2 {
   color: #ff7a95;
 }
+#contact h2 {
+  color: #66d9ef;
+}
+/* 초기 상태 */
 .header-animation {
-  display: flex;
+  display: none; /* 초기에는 숨겨진 상태 */
   opacity: 0;
-  animation: fadeIn 1s forwards, slideDown 1s forwards;
-  animation-delay: 3s;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-sizing: border-box; /* box-sizing을 border-box로 설정하여 width와 height에 padding, border를 포함 */
-  padding: 10px; /* 헤더에 padding 추가 */
 }
 
+/* 애니메이션 적용 */
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
   to {
     opacity: 1;
   }
 }
 
+/* 애니메이션 적용 */
 @keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
   to {
+    transform: translateY(0);
+  }
+}
+
+/* 화면 크기가 601px 이상일 때의 스타일 */
+@media screen and (min-width: 601px) {
+  .header-animation {
+    display: none; /* 초기에는 숨겨진 상태 */
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .header-animation.initial-animation {
+    animation: fadeIn 1s forwards, slideDown 1s forwards;
+    animation-delay: 3s; /* 처음 나타날 때의 딜레이 설정 */
+  }
+}
+
+/* 화면 크기가 600px 이하일 때의 스타일 */
+@media screen and (max-width: 600px) {
+  .header-animation {
+    animation: fadeIn 1s forwards; /* 화면 크기가 작을 때는 fadeIn 애니메이션만 적용 */
   }
 }
 

@@ -31,3 +31,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const headerAnimation = document.querySelector(".header-animation");
+
+  function handleResize() {
+    if (window.innerWidth > 800) {
+      headerAnimation.style.display = "flex";
+    } else if (window.innerWidth <= 800) {
+      headerAnimation.style.display = "none";
+    }
+  }
+
+  window.addEventListener("resize", handleResize);
+
+  // 페이지 로드 시 초기 상태 설정
+  handleResize();
+
+  setTimeout(function () {
+    headerAnimation.classList.remove("initial-animation");
+    headerAnimation.style.opacity = 1;
+  }, 4000);
+});

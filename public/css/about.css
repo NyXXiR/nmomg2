@@ -17,6 +17,7 @@
 }
 h2 {
   font-size: 50px;
+  margin-top: 40px;
 }
 
 body {
@@ -200,8 +201,12 @@ body {
     animation: fadeIn 1s forwards; /* 화면 크기가 작을 때는 fadeIn 애니메이션만 적용 */
   }
 
-  #skills > .section-container {
+  .section-container {
+    display: flex;
     flex-direction: column;
+  }
+  h1 {
+    font-size: calc(1.375rem + 1vw);
   }
 }
 

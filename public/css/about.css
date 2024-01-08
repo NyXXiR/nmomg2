@@ -208,6 +208,12 @@ body {
   h1 {
     font-size: calc(1.375rem + 1vw);
   }
+
+  .project-container-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
 }
 
 .default-container {
@@ -282,4 +288,15 @@ body {
   height: 40px; /* 아이콘의 높이 */
   margin-right: 15px; /* 아이콘과 텍스트 사이의 간격 */
   margin-left: 15px;
+}
+
+.project-container-content {
+  display: flex;
+  justify-content: space-between;
+}
+.project-left,
+.project-right {
+  flex-basis: calc(50% - 20px);
+  padding: 50px;
+  margin: 10px;
 }

@@ -53,12 +53,12 @@ block content
             .about-left
                 h3 임규훈
                 h4 Web developer
-                p - 풀스택 개발자.
-                p - GIS 기반 솔루션 개발 및 유지보수 담당
-                p - Front-end 및 Back-end 기술 스택을 활용한 지리 정보 시스템을 개발하고 최적화
-                p - 지도 데이터 시각화 및 공간 분석에 관한 다양한 기능 구현
-                p - 고객 요구사항에 따라 사용자 친화적이고 직관적인 UI/UX 설계
-                p - 효율적인 데이터베이스 구조 설계 및 성능 향상을 위한 최적화 작업 수행
+                p - 풀스택 개발자.
+                p - GIS 기반 솔루션 개발 및 유지보수 담당
+                p - Front-end 및 Back-end 기술 스택을 활용한 지리 정보 시스템을 개발하고 최적화
+                p - 지도 데이터 시각화 및 공간 분석에 관한 다양한 기능 구현
+                p - 고객 요구사항에 따라 사용자 친화적이고 직관적인 UI/UX 설계
+                p - 효율적인 데이터베이스 구조 설계 및성능 향상을 위한 최적화 작업 수행
             .about-right
                 img(src="/img/ddabong.gif" alt="profile" height="150px" )
     section#skills
@@ -89,12 +89,14 @@ block content
             ul.version-control
                 h3 version control
                 li.icon-item(data-icon="git") git
-                li.icon-item(data-icon="githubdesktop") git desktop
+                li.icon-item(data-icon="githubdesktop") github desktop
 
             ul.communication-test
-                h3 communicaion-test tool
+                h3 communication-test tool
                 li.icon-item(data-icon="figma") figma
                 li.icon-item(data-icon="postman") postman
+                li.icon-item(data-icon="notion") notion
+
 
             ul.db-cache
                 h3 DB-cache
@@ -112,11 +114,42 @@ block content
             .project-container //이 컨테이너는 컴포넌트로 만들어 활용해야 함
                 .project-container-header
                     h3 2023
+                    h3 너만오면고(NMOMG) - 온라인 게임 구인 플랫폼
+                    h4 참여인원: 1명
+                .project-container-content
+                    .project-left
+                        .thumbnail
+                            img(src="/img/about/thumbnail_1.png" alt="Logo" width="100%" )
+                            .thumbnail-button-container
+                                button <
+                                span 1
+                                span  / 1
+                                button >
+                            a(href='https://nmomg.com')
+                            span readme 상세보기
+                            button 노션 버튼
+                    .project-right
+                        .description
+                            | 비슷한 수준의 실력을 갖춘 온라인 게임 멤버를 구하기 위한 구인 플랫폼입니다.<br><br>
+                            | 팀원 구하기, 커뮤니티 게시판, 전적검색 등 3가지 기능 구현을 중심으로 개발했으며 팀원구하기 기능의 경우 팀원 모집 글이 오래 남아있게 하지 않기 위해 스케줄러를 활용했습니다.<br><br>
+                            | 또한 라이엇게임즈에게서 api 키를 발급받아 유저 전적을 가져와 표시해 전적검색 기능을 구현했으며, 통합 로그인 기능 구현을 위해 OAuth 2.0을 활용하여 라이엇 계정으로도 회원가입 및 로그인을 진행할 수 있게 해 편의성을 높였습니다.<br><br>
+                            | 이번 프로젝트를 통해 구글 애드센스를 등록하고 화면에 배치하는 방법을 학습하게 되었으며 직접 서버와 도메인을 구매해 서버를 세팅하는 공부를 할 수 있었습니다.<br><br>
+                            | 비매너 유저 판별을 위한 유저 별점 기능을 추가하려 계획 중입니다. 만약 시간이 지나도 함께 게임한 유저에게 별점을 주지 않을 경우 만족한 것으로 간주하고 최대 점수(5점)을 부여합니다.<br><br>
+
+                        .tech-stack 사용한 기술
+                            div github desktop
+                            div vue.js
+                            div node.js
+                            div express
+
+            .project-container //이 컨테이너는 컴포넌트로 만들어 활용해야 함
+                .project-container-header
+                    h3 2023
                     h3 프로젝트명
                     h4 2023.09~2023.12(1명)
                 .project-container-content
                     .thumbnail
-                        img(src="/img/example.png" alt="Logo" height="200px" )
+                        img(src="/img/example.png" alt="Logo" width="200px" )
                         .thumbnail-button-container
                             button <
                             span 1

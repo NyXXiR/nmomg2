@@ -53,3 +53,33 @@ document.addEventListener("DOMContentLoaded", function () {
     headerAnimation.style.opacity = 1;
   }, 4000);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // 각 링크를 가져옵니다.
+  var links = document.querySelectorAll(".navigation-bar-container a");
+
+  // 링크를 클릭했을 때의 동작을 정의합니다.
+  links.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      // 클릭한 링크의 해시 값을 가져옵니다.
+      var targetId = link.getAttribute("href").substring(1);
+
+      // 해당 섹션의 위치를 계산합니다.
+      var targetElement = document.getElementById(targetId);
+      var targetOffset = targetElement.offsetTop;
+
+      // fixed 헤더의 높이를 가져옵니다.
+      var headerHeight = document.querySelector(
+        ".navigation-bar-container"
+      ).offsetHeight;
+
+      // 스크롤 위치를 조절하여 fixed 헤더를 고려한 위치로 이동합니다.
+      window.scrollTo({
+        top: targetOffset - headerHeight,
+        behavior: "smooth",
+      });
+    });
+  });
+});

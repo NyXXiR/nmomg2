@@ -20,6 +20,9 @@ h2 {
   margin-top: 40px;
 }
 
+li {
+  list-style-type: none;
+}
 body {
   font-family: "Jura", sans-serif; /* 전체 문서에 Jura 폰트를 사용하도록 설정 */
   background-color: #272823 !important;
@@ -285,6 +288,12 @@ body {
 }
 
 #skills .icon {
+  height: 40px; /* 아이콘의 높이 */
+  margin-right: 15px; /* 아이콘과 텍스트 사이의 간격 */
+  margin-left: 15px;
+}
+
+.tech-stack .icon {
   height: 40px; /* 아이콘의 높이 */
   margin-right: 15px; /* 아이콘과 텍스트 사이의 간격 */
   margin-left: 15px;

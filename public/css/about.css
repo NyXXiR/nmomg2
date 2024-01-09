@@ -20,6 +20,13 @@ h2 {
   margin-top: 40px;
 }
 
+h3 {
+  font-weight: bold;
+}
+h4 {
+  font-weight: lighter;
+  color: gray;
+}
 li {
   list-style-type: none;
 }
@@ -217,6 +224,25 @@ body {
     justify-content: space-between;
     flex-direction: column;
   }
+
+  .project-left,
+  .project-right {
+    flex-basis: calc(50% - 20px);
+    padding: 0px !important;
+    margin: 10px;
+  }
+
+  #about > .section-container > div {
+    padding: 30px !important;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .project-button-name {
+    display: none;
+  }
+  .project-button {
+    margin: 5px 0 5px 0 !important;
+  }
 }
 
 .default-container {
@@ -252,7 +278,6 @@ body {
 #about > .section-container {
   display: grid;
   grid-template-columns: 3fr 1fr; /* 3:1 비율로 설정 */
-  gap: 20px; /* 간격 설정 */
   align-items: center;
 }
 
@@ -267,6 +292,10 @@ body {
   justify-content: space-between; /* 가로 정렬을 space-between으로 변경 */
 }
 
+#about > .section-container > div {
+  padding: 50px;
+}
+
 #skills ul {
   flex-basis: calc(50% - 20px); /* 2줄로 배치하기 위한 계산값 */
   padding: 50px;
@@ -278,6 +307,10 @@ body {
   margin-top: 30px;
   margin-bottom: 20px;
   text-align: left;
+  border-bottom: 1px solid gray;
+}
+
+.tech-stack > h3 {
   border-bottom: 1px solid gray;
 }
 
@@ -299,6 +332,11 @@ body {
   margin-left: 15px;
 }
 
+.icon-item > .icon {
+  height: 40px; /* 아이콘의 높이 */
+  margin-right: 15px; /* 아이콘과 텍스트 사이의 간격 */
+  margin-left: 15px;
+}
 .project-container-content {
   display: flex;
   justify-content: space-between;
@@ -308,4 +346,57 @@ body {
   flex-basis: calc(50% - 20px);
   padding: 50px;
   margin: 10px;
+}
+
+.thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.thumbnail > * {
+  margin: 10px;
+}
+
+.project-container {
+  padding: 20px;
+}
+.project-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.project-github-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-detail-container > a {
+  background: black;
+  color: white;
+
+  text-decoration: none;
+  border: 1px solid black;
+}
+.project-github-container > a {
+  background: white;
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+}
+.project-button {
+  margin: 5px 0 5px 15px;
+}
+.project-link-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.project-link-container > div {
+  padding: 10px;
+}
+
+.tech-stack {
+  text-align: left;
 }

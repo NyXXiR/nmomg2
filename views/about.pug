@@ -111,67 +111,87 @@ block content
         h2 Projects
 
         .section-container
-            .project-container //이 컨테이너는 컴포넌트로 만들어 활용해야 함
+            .project-container
                 .project-container-header
-                    h3 2023
+                    h4 2023
                     h3 너만오면고(NMOMG) - 온라인 게임 구인 플랫폼
                     h4 참여인원: 1명
                 .project-container-content
                     .project-left
                         .thumbnail
                             img(src="/img/about/thumbnail_1.png" alt="Logo" width="100%" )
-                            .thumbnail-button-container
+                            .thumbnail-button-container(style="display:none;")
                                 button <
                                 span 1
                                 span  / 1
                                 button >
-                            a(href='https://nmomg.com')
-                            span readme 상세보기
-                            button 노션 버튼
-                        .ul.tech-stack 사용한 기술
+                            .project-link-container
+                                .project-github-container
+                                    a(href='https://github.com/NyXXiR/nmomg2')
+                                        .icon-item.project-button(data-icon="githubdesktop")
+                                            span.project-button-name github
+                                .project-detail-container
+                                    a(href="https://www.notion.so/NMOMG-7b72d51a5b7f4fe3885443a68ee36c3c?pvs=4")
+                                        .icon-item.project-button(data-icon="notion")
+                                            span.project-button-name readme
+                        .ul.tech-stack
+                            h3 stack
                             li.icon-item(data-icon="nodejs") node.js
                             li.icon-item(data-icon="express") express
                             li.icon-item(data-icon="githubdesktop") github desktop
+                            li.icon-item(data-icon="letsencrypt") let's encrypt
+                            li.icon-item(data-icon="ubuntu") ubuntu
+                            li.icon-item(data-icon="nginx") nginx
+                            li.icon-item(data-icon="mysql") mySQL
                     .project-right
                         .description
                             | 비슷한 수준의 실력을 갖춘 온라인 게임 멤버를 구하기 위한 구인 플랫폼입니다.<br><br>
                             | 팀원 구하기, 커뮤니티 게시판, 전적검색 등 3가지 기능 구현을 중심으로 개발했으며 팀원구하기 기능의 경우 팀원 모집 글이 오래 남아있게 하지 않기 위해 스케줄러를 활용했습니다.<br><br>
                             | 또한 라이엇게임즈에게서 api 키를 발급받아 유저 전적을 가져와 표시해 전적검색 기능을 구현했으며, 통합 로그인 기능 구현을 위해 OAuth 2.0을 활용하여 라이엇 계정으로도 회원가입 및 로그인을 진행할 수 있게 해 편의성을 높였습니다.<br><br>
-                            | 이번 프로젝트를 통해 구글 애드센스를 등록하고 화면에 배치하는 방법을 학습하게 되었으며 직접 서버와 도메인을 구매해 서버를 세팅하는 공부를 할 수 있었습니다.<br><br>
+                            | 이번 프로젝트를 통해 구글 애드센스를 등록하고 화면에 배치하는 방법을 학습하게 되었으며 직접 서버와 도메인을 구매해 서버를 세팅하는 과정에 대해 알아볼 수 있었습니다.<br><br>
                             | 비매너 유저 판별을 위한 유저 별점 기능을 추가하려 계획 중입니다. 만약 시간이 지나도 함께 게임한 유저에게 별점을 주지 않을 경우 만족한 것으로 간주하고 최대 점수(5점)을 부여합니다.<br><br>
 
-
-
-
-            .project-container //이 컨테이너는 컴포넌트로 만들어 활용해야 함
+            .project-container
                 .project-container-header
-                    h3 2023
-                    h3 프로젝트명
-                    h4 2023.09~2023.12(1명)
+                    h4 2023
+                    h3 건설기술연구원 지하정보 활용지원센터 (Web)
+                    h4 참여인원: 3명
                 .project-container-content
-                    .thumbnail
-                        img(src="/img/example.png" alt="Logo" width="200px" )
-                        .thumbnail-button-container
-                            button <
-                            span 1
-                            span  / 8
-                            button >
-                        a(href='https://nmomg.com')
-                        span readme 상세보기
-                        button 노션 버튼
-                    .description 프로젝트 설명을 입력하세요.
-                    .tech-stack 사용한 기술
-                        div github desktop
-                        div vue.js
-                        div node.js
-                        div express
+                    .project-left
+                        .thumbnail
+                            img(src="/img/about/thumbnail_2.png" alt="Logo" width="100%" )
+                            .thumbnail-button-container(style="display:none;")
+                                button <
+                                span 1
+                                span  / 1
+                                button >
+                            .project-link-container
+                                .project-detail-container
+                                    a(href="https://www.notion.so/Web-08872934d1a24bc09e38192a8d655f21?pvs=4")
+                                        .icon-item.project-button(data-icon="notion")
+                                            span.project-button-name readme
+                        .ul.tech-stack
+                            h3 stack
+                            li.icon-item(data-icon="java") java
+                            li.icon-item(data-icon="spring") spring
+                            li.icon-item(data-icon="jsp") jsp
+                            li.icon-item(data-icon="githubdesktop") github desktop
+                            li.icon-item(data-icon="postgresql") postgreSQL
 
+
+                    .project-right
+                        .description
+                            | 국토교통부 산하 건설기술연구원과 함께 진행한 웹페이지 프로젝트입니다.<br><br>
+                            | 요구사항을 듣고 온라인 동영상 강의 재생 및 수강 여부 확인, 물품 수령·반납 기능을 구현했으며 여러 게시판을 동적으로 생성해 메인 화면 슬라이드 등 여러 곳에서 사용하게 했습니다.<br><br>
+                            | 또한 관리자 페이지를 만들어 관리자가 이용자의 강의 수강 및 신청 여부를 확인할 수 있게 한 한편 이용자들의 인구통계학적 정보를 통계로 확인할 수 있는 화면을 제공했습니다.<br><br>
+                            | 이번 프로젝트를 통해 백엔드에서 프론트엔드로 데이터를 보내는 과정을 더 심도 있게 이해하게 되었으며 객체지향을 이용한 데이터 전송의 유용성에 대해 체감해볼 수 있었습니다.<br><br>
 
 
     section#contact
         h2 Contact
         .section-container
-            p Feel free to reach out to me via email at lgh0334@gmail.com.
+            div lgh0334@gmail.com
+            div @lgh0334
 
     script(src='/js/about.js') // 스크립트 파일 링크를 추가하세요.
 

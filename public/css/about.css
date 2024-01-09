@@ -235,6 +235,10 @@ body {
   #about > .section-container > div {
     padding: 30px !important;
   }
+  #about > .section-container {
+    display: flex !important;
+    flex-direction: column !important; /* 세로 방향으로 정렬 */
+  }
 }
 @media screen and (max-width: 1200px) {
   .project-button-name {

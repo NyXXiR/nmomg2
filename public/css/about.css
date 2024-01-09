@@ -378,6 +378,14 @@ body {
 .project-container {
   padding: 20px;
 }
+
+.project-container::after {
+  content: ""; /* 가상 요소에 내용 추가 */
+  display: block; /* 블록 요소로 설정 */
+  border-top: 1px solid gray; /* 회색 실선 설정 */
+  margin-top: 10px; /* 원하는 간격 설정 */
+}
+
 .project-detail-container {
   display: flex;
   flex-direction: column;

@@ -426,6 +426,9 @@ body {
 .tech-stack-list {
   text-align: right;
 }
+.tech-stack-list li {
+  margin-bottom: 10px;
+}
 .description-text {
   text-align: left;
 }

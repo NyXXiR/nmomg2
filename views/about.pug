@@ -4,7 +4,8 @@ block content
     header.header-animation.initial-animation
         .navigation-bar
             .logo-container
-                img(src="/img/about.png" alt="Logo" height="130px" )
+                a(href="/about")
+                    img(src="/img/about.png" alt="Logo" height="130px" )
             .navigation-bar-container
                 a(href='#') Home
                 a(href='#about') About
@@ -134,15 +135,16 @@ block content
                                     a(href="https://www.notion.so/NMOMG-7b72d51a5b7f4fe3885443a68ee36c3c?pvs=4")
                                         .icon-item.project-button(data-icon="notion")
                                             span.project-button-name readme
-                        .ul.tech-stack
+                        .tech-stack
                             h3 stack
-                            li.icon-item(data-icon="nodejs") node.js
-                            li.icon-item(data-icon="express") express
-                            li.icon-item(data-icon="githubdesktop") github desktop
-                            li.icon-item(data-icon="letsencrypt") let's encrypt
-                            li.icon-item(data-icon="ubuntu") ubuntu
-                            li.icon-item(data-icon="nginx") nginx
-                            li.icon-item(data-icon="mysql") mySQL
+                            .ul.tech-stack-list
+                                li.icon-item(data-icon="nodejs") node.js
+                                li.icon-item(data-icon="express") express
+                                li.icon-item(data-icon="githubdesktop") github desktop
+                                li.icon-item(data-icon="letsencrypt") let's encrypt
+                                li.icon-item(data-icon="ubuntu") ubuntu
+                                li.icon-item(data-icon="nginx") nginx
+                                li.icon-item(data-icon="mysql") mySQL
                     .project-right
                         .description
                             h3 project description
@@ -172,13 +174,14 @@ block content
                                     a(href="https://www.notion.so/Web-08872934d1a24bc09e38192a8d655f21?pvs=4")
                                         .icon-item.project-button(data-icon="notion")
                                             span.project-button-name readme
-                        .ul.tech-stack
+                        .tech-stack
                             h3 stack
-                            li.icon-item(data-icon="java") java
-                            li.icon-item(data-icon="spring") spring
-                            li.icon-item(data-icon="jsp") jsp
-                            li.icon-item(data-icon="githubdesktop") github desktop
-                            li.icon-item(data-icon="postgresql") postgreSQL
+                            .ul.tech-stack-list
+                                li.icon-item(data-icon="java") java
+                                li.icon-item(data-icon="spring") spring
+                                li.icon-item(data-icon="jsp") jsp
+                                li.icon-item(data-icon="githubdesktop") github desktop
+                                li.icon-item(data-icon="postgresql") postgreSQL
 
 
                     .project-right

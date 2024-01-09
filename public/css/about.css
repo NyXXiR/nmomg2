@@ -196,7 +196,6 @@ body {
     width: 100%;
     z-index: 1000;
     box-sizing: border-box;
-    padding: 10px;
   }
 
   .header-animation.initial-animation {
@@ -257,8 +256,13 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%; /* navigation-bar에도 100% width 적용 */
+  margin-top: 0;
   background: #272823;
 }
+.navigation-bar::after {
+  height: 0;
+}
+
 .navigation-bar-container a {
   margin-left: 50px; /* 각 링크의 왼쪽 마진을 이용하여 간격 생성 */
   font-size: 30px;
@@ -317,6 +321,7 @@ body {
 .tech-stack > h3 {
   border-bottom: 1px solid gray;
   margin-bottom: 20px;
+  text-align: left;
 }
 .description > h3 {
   text-align: left;
@@ -410,8 +415,8 @@ body {
   padding: 10px;
 }
 
-.tech-stack {
-  text-align: left;
+.tech-stack-list {
+  text-align: right;
 }
 .description-text {
   text-align: left;

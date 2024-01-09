@@ -312,6 +312,12 @@ body {
 
 .tech-stack > h3 {
   border-bottom: 1px solid gray;
+  margin-bottom: 20px;
+}
+.description > h3 {
+  text-align: left;
+  border-bottom: 1px solid gray;
+  margin-bottom: 20px;
 }
 
 #skills li {

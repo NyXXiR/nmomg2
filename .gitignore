@@ -1,2 +1,6 @@
 
-config/secrets/key.js
+node_modules/
+.DS_Store
+riot.txt
+riot_lol.txt
+config/secrets/*.js
